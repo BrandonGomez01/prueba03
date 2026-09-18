@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Vos ♡</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--rosa:#ff4d6d;--fondo:#fff5f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--fondo);font-family:'Poppins',sans-serif;overflow-x:hidden;color:#333}
+h1,h2{font-family:'Playfair Display',serif}
+
+/* 3. SOBRE */
+#sobre-container{position:fixed;inset:0;background:var(--fondo);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:1s}
+.sobre{width:300px;height:200px;background:#ff8fa3;position:relative;cursor:pointer;border-radius:8px;box-shadow:0 15px 40px rgba(0,0,0,.2)}
+.sobre:before{content:'';position:absolute;top:0;left:0;width:0;height:0;border-left:150px solid transparent;border-right:150px solid transparent;border-top:120px solid #ff4d6d;transform-origin:top;transition:.6s;z-index:2}
+.sobre.abierto:before{transform:rotateX(180deg)}
+.carta-sobre{position:absolute;bottom:10px;left:15px;right:15px;background:white;height:150px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:.6s;z-index:1;text-align:center;padding:10px}
+.sobre.abierto.carta-sobre{transform:translateY(-110px);height:180px}
+.btn-principal{background:var(--rosa);color:white;border:none;padding:14px 30px;border-radius:30px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 20px rgba(255,77,109,.4)}
+
+/* SECCIONES GENERALES */
+section{max-width:800px;margin:0 auto;padding:60px 20px;text-align:center}
+#contador{font-size:2.2rem;font-weight:600;color:var(--rosa);margin:20px 0}
+
+/* 8. POLAROIDS */
+.polaroid-wrap{position:relative;height:500px;margin-top:30px}
+.polaroid{position:absolute;width:180px;background:white;padding:10px 10px 35px 10px;box-shadow:0 8px 25px rgba(0,0,0,.15);cursor:grab;user-select:none;touch-action:none;transform:rotate(var(--r))}
+.polaroid img{width:100%;height:160px;object-fit:cover;pointer-events:none}
+.polaroid span{font-family:'Playfair Display';font-size:14px}
+
+/* 5. JUEGO */
+#juego-area{position:relative;width:100%;height:350px;background:white;border-radius:20px;overflow:hidden;border:2px dashed #ffb3c1;display:none}
+.corazon-game{position:absolute;font-size:30px;cursor:pointer;animation:pop.2s}
+@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+
+/* 9. LINTERNA */
+#linterna-container{position:relative;width:100%;height:400px;background:#000;border-radius:20px;overflow:hidden;margin-top:20px}
+#mensaje-oculto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;padding:30px;text-align:center;font-family:'Playfair Display'}
+#canvas-linterna{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+
+/* OTROS */
+.kiss{position:fixed;top:-20px;font-size:28px;animation:caer 3s linear forwards;z-index:9999}
+@keyframes caer{to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<div id="sobre-container">
+  <h1 style="margin-bottom:20px">Tengo algo para vos ♡</h1>
+  <div class="sobre" id="sobre" onclick="abrirSobre()">
+    <div class="carta-sobre">
+      <p><b>Tocá para abrir<br>no seas ansiosa...</b> 😏</p>
+    </div>
+  </div>
+  <p style="margin-top:20px;opacity:.6">Hecho con todo mi amor</p>
+</div>
+
+<section id="contenido" style="display:none">
+  <h1>Para mi persona favorita</h1>
+  <div id="contador"></div>
+  <p>Hace <span id="dias"></span> días que sos mi persona ♡</p>
+
+  <div style="margin-top:50px">
+    <h2>Nuestros recuerdos</h2>
+    <div class="polaroid-wrap" id="polaroid-wrap">
+      <div class="polaroid" style="left:10%;top:20px;--r:-8deg"><img src="https://picsum.photos/200/200?1"><span>Primera foto ♡</span></div>
+      <div class="polaroid" style="left:40%;top:80px;--r:6deg"><img src="https://picsum.photos/200/200?2"><span>Tu sonrisa</span></div>
+      <div class="polaroid" style="left:20%;top:240px;--r:-3deg"><img src="https://picsum.photos/200/200?3"><span>Nosotros</span></div>
+    </div>
+    <p style="opacity:.5;margin-top:10px">Tip: podés arrastrar las fotos como polaroids reales</p>
+  </div>
+
+  <div style="margin-top:60px">
+    <h2>¿Jugamos algo?</h2>
+    <p>Atrapá 10 corazones en 10 segundos y te doy tu sorpresa</p>
+    <button class="btn-principal" style="margin-top:15px" onclick="iniciarJuego()">Jugar ahora 💘</button>
+    <div id="juego-area"><div id="score" style="position:absolute;top:10px;left:15px;font-weight:600">0/10</div></div>
+  </div>
+
+  <div style="margin-top:80px">
+    <h2>Mensaje secreto</h2>
+    <p>Pasá el dedo como una linterna para descubrirlo</p>
+    <div id="linterna-container">
+      <div id="mensaje-oculto">Si estás leyendo esto con la linterna es porque sos la persona más curiosa y hermosa del mundo. Te amo más de lo que te imaginás. Gracias por existir. - Yo ♡</div>
+      <canvas id="canvas-linterna"></canvas>
+    </div>
+  </div>
+
+  <div style="margin-top:80px">
+    <h2>¿Querés ser mi persona para siempre?</h2>
+    <button class="btn-principal" onclick="siQuiero()" style="margin:15px">SÍ, QUIERO ♡</button>
+    <div style="margin-top:15px">
+      <button class="btn-principal" style="background:#333" onclick="imprimir()">🖨️ Imprimir nuestra historia</button>
+    </div>
+  </div>
+</section>
+
+<script>
+// CONFIGURACION
+const inicio = new Date('2024-02-14T00:00:00');
+const miNumero = '5491141643081'; // <-- PONE TU NUMERO ACA
+
+// 3. SOBRE
+function abrirSobre(){
+  document.getElementById('sobre').classList.add('abierto');
+  setTimeout(()=>{
+    document.getElementById('sobre-container').style.opacity='0';
+    setTimeout(()=>{
+      document.getElementById('sobre-container').style.display='none';
+      document.getElementById('contenido').style.display='block';
+      iniciarLinterna();
+    },1000)
+  },800)
+}
+
+// CONTADOR
+function actualizarContador(){
+  const hoy = new Date();
+  const diff = Math.floor((hoy - inicio)/(1000*60*60*24));
+  document.getElementById('dias').innerText = diff;
+  document.getElementById('contador').innerText = `Hace ${diff} días`;
+}
+actualizarContador();
+
+// 8. POLAROIDS ARRASTRABLES
+document.querySelectorAll('.polaroid').forEach(el=>{
+  let x=0,y=0,iniX,iniY,moving=false;
+  el.addEventListener('mousedown',start); el.addEventListener('touchstart',start);
+  function start(e){moving=true; const p=e.touches?e.touches[0]:e; iniX=p.clientX-x; iniY=p.clientY-y; el.style.zIndex=100; el.style.cursor='grabbing'}
+  window.addEventListener('mousemove',move); window.addEventListener('touchmove',move,{passive:false});
+  function move(e){if(!moving)return; e.preventDefault(); const p=e.touches?e.touches[0]:e; x=p.clientX-iniX; y=p.clientY-iniY; el.style.transform=`translate(${x}px,${y}px) rotate(${el.style.getPropertyValue('--r')||'0deg'})`}
+  window.addEventListener('mouseup',()=>moving=false); window.addEventListener('touchend',()=>moving=false);
+});
+
+// 5. JUEGO
+let puntos=0, juegoActivo=false, timer;
+function iniciarJuego(){
+  const area=document.getElementById('juego-area'); area.style.display='block'; puntos=0; juegoActivo=true;
+  document.getElementById('score').innerText='0/10'; area.innerHTML='<div id="score" style="position:absolute;top:10px;left:15px;font-weight:600">0/10</div>';
+  timer=setInterval(crearCorazon,600);
+  setTimeout(()=>{if(puntos<10){juegoActivo=false;clearInterval(timer);alert('Casi! Intentá de nuevo ♡')} },10000);
+}
+function crearCorazon(){
+  if(!juegoActivo)return;
+  const area=document.getElementById('juego-area');
+  const c=document.createElement('div'); c.className='corazon-game'; c.innerText='💖';
+  c.style.left=Math.random()*(area.clientWidth-40)+'px'; c.style.top=Math.random()*(area.clientHeight-50)+'px';
+  c.onclick=()=>{puntos++; document.getElementById('score').innerText=puntos+'/10'; c.remove(); if(puntos>=10){juegoActivo=false;clearInterval(timer);area.innerHTML='<h2 style="margin-top:130px">Ganaste!! Sos increíble atrapando mi corazón 😍</h2>'; lluviaBesos()}}
+  area.appendChild(c); setTimeout(()=>c.remove(),1500);
+}
+
+// 6. LLUVIA DE BESOS
+function lluviaBesos(){
+  if(navigator.vibrate) navigator.vibrate([100,50,100]);
+  for(let i=0;i<40;i++){
+    setTimeout(()=>{
+      const b=document.createElement('div'); b.className='kiss'; b.innerText=['😘','💋','😍','💖'][Math.floor(Math.random()*4)];
+      b.style.left=Math.random()*100+'vw'; b.style.animationDuration=(2+Math.random()*2)+'s';
+      document.body.appendChild(b); setTimeout(()=>b.remove(),3000);
+    },i*80)
+  }
+}
+function siQuiero(){
+  lluviaBesos();
+  setTimeout(()=>{
+    const txt=encodeURIComponent('Sí, quiero ser tu persona para siempre ♡');
+    window.open(`https://wa.me/${miNumero}?text=${txt}`,'_blank');
+  },1200)
+}
+
+// 7. IMPRIMIR PDF
+function imprimir(){
+  window.print();
+}
+
+// 9. LINTERNA
+function iniciarLinterna(){
+  const canvas=document.getElementById('canvas-linterna');
+  const ctx=canvas.getContext('2d');
+  function resize(){canvas.width=canvas.parentElement.clientWidth;canvas.height=canvas.parentElement.clientHeight; ctx.fillStyle='black'; ctx.fillRect(0,0,canvas.width,canvas.height)}
+  resize(); window.addEventListener('resize',resize);
+  let mouseX= -100, mouseY= -100;
+  function draw(){ctx.globalCompositeOperation='source-over'; ctx.fillStyle='black'; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.globalCompositeOperation='destination-out'; let grad=ctx.createRadialGradient(mouseX,mouseY,0,mouseX,mouseY,120); grad.addColorStop(0,'rgba(0,0,0,1)'); grad.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=grad; ctx.beginPath(); ctx.arc(mouseX,mouseY,120,0,Math.PI*2); ctx.fill()}
+  canvas.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect(); mouseX=e.clientX-r.left; mouseY=e.clientY-r.top; draw()});
+  canvas.addEventListener('touchmove',e=>{const r=canvas.getBoundingClientRect(); mouseX=e.touches[0].clientX-r.left; mouseY=e.touches[0].clientY-r.top; draw(); e.preventDefault()},{passive:false});
+  draw();
+}
+</script>
+</body>
+</html>
