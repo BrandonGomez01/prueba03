@@ -2,212 +2,167 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Vos ♡ - Versión Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Para Vos ♡ - TODO EN 1</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
 :root{--rosa:#ff4d6d;--fondo:#fff5f7}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--fondo);font-family:'Poppins',sans-serif;overflow-x:hidden;color:#333;cursor:none}
+body{background:var(--fondo);font-family:'Poppins',sans-serif;overflow-x:hidden;color:#333}
 h1,h2{font-family:'Playfair Display',serif}
-#progress-bar{position:fixed;top:0;left:0;height:4px;background:var(--rosa);z-index:9999;width:0%;transition:.2s}
+#progress-bar{position:fixed;top:0;left:0;height:4px;background:var(--rosa);z-index:99999;width:0%}
+.btn{background:var(--rosa);color:white;border:none;padding:13px 28px;border-radius:30px;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(255,77,109,.4)}
+section{max-width:850px;margin:0 auto;padding:50px 18px;text-align:center}
+.card-juego{background:white;border-radius:22px;padding:22px;margin:25px 0;border:2px dashed #ffb3c1;text-align:center}
 
-/* SOBRE MEJORADO */
+/* SOBRE */
 #sobre-container{position:fixed;inset:0;background:var(--fondo);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:1s}
-.sobre{width:300px;height:200px;background:#ff8fa3;position:relative;cursor:pointer;border-radius:8px;box-shadow:0 15px 40px rgba(0,0,0,.2);transition:.3s}
-.sobre:hover{transform:scale(1.05) rotate(-1deg)}
-.sobre:before{content:'';position:absolute;top:0;left:0;width:0;height:0;border-left:150px solid transparent;border-right:150px solid transparent;border-top:120px solid #ff4d6d;transform-origin:top;transition:.6s;z-index:2}
+.sobre{width:300px;height:200px;background:#ff8fa3;position:relative;cursor:pointer;border-radius:8px;box-shadow:0 15px 40px rgba(0,0,0,.2)}
+.sobre:before{content:'';position:absolute;top:0;left:0;border-left:150px solid transparent;border-right:150px solid transparent;border-top:120px solid #ff4d6d;transform-origin:top;transition:.6s;z-index:2}
 .sobre.abierto:before{transform:rotateX(180deg)}
-.carta-sobre{position:absolute;bottom:10px;left:15px;right:15px;background:white;height:150px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:.6s;z-index:1;text-align:center;padding:10px}
-.sobre.abierto.carta-sobre{transform:translateY(-110px);height:180px}
-.btn-principal{background:var(--rosa);color:white;border:none;padding:14px 30px;border-radius:30px;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 8px 20px rgba(255,77,109,.4);transition:.2s}
-.btn-principal:active{transform:scale(.95)}
+.carta-sobre{position:absolute;bottom:10px;left:15px;right:15px;background:white;height:150px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:.6s;z-index:1}
+.heart-cursor{position:fixed;pointer-events:none;z-index:99999;font-size:12px;opacity:.7}
 
-section{max-width:800px;margin:0 auto;padding:60px 20px;text-align:center}
-#contador{font-size:2.2rem;font-weight:600;color:var(--rosa);margin:20px 0}
+/* POLAROIDS */
+.polaroid-wrap{position:relative;height:520px;margin-top:15px}
+.polaroid{position:absolute;width:165px;background:white;padding:8px 8px 28px 8px;box-shadow:0 8px 25px rgba(0,0,0,.15);cursor:grab;user-select:none;transform:rotate(var(--r))}
+.polaroid img{width:100%;height:145px;object-fit:cover;pointer-events:none}
+#zoom-modal{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:99999;display:none;align-items:center;justify-content:center}
+#zoom-modal img{max-width:90%;max-height:80%;border:8px solid white;border-radius:8px}
 
-/* POLAROIDS PRO */
-.polaroid-wrap{position:relative;height:550px;margin-top:30px}
-.polaroid{position:absolute;width:180px;background:white;padding:10px 10px 35px 10px;box-shadow:0 8px 25px rgba(0,0,0,.15);cursor:grab;user-select:none;touch-action:none;transform:rotate(var(--r));transition:box-shadow.2s}
-.polaroid:hover{box-shadow:0 15px 35px rgba(0,0,0,.25);z-index:20!important}
-.polaroid img{width:100%;height:160px;object-fit:cover;pointer-events:none}
-#zoom-modal{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px}
-#zoom-modal img{max-width:90%;max-height:80%;border-radius:10px;border:8px solid white}
+/* JUEGO ATRAPA */
+#juego-area{position:relative;width:100%;height:320px;background:#fff0f3;border-radius:18px;overflow:hidden;display:none;margin-top:12px}
+.corazon-game{position:absolute;font-size:28px;cursor:pointer}
 
-/* JUEGO */
-#juego-area{position:relative;width:100%;height:350px;background:white;border-radius:20px;overflow:hidden;border:2px dashed #ffb3c1;display:none;margin-top:15px}
-.corazon-game{position:absolute;font-size:30px;cursor:pointer;animation:pop.3s}
-@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
+/* MEMORY */
+#memory-board{display:none;grid-template-columns:repeat(3,1fr);gap:10px;max-width:320px;margin:12px auto}
+.memory-card{height:90px;background:#ff8fa3;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer}
+.memory-card.volteada{background:white;border:2px solid var(--rosa)}
+.memory-card.ok{opacity:.3;pointer-events:none}
 
-/* LINTERNA */
-#linterna-container{position:relative;width:100%;height:400px;background:#000;border-radius:20px;overflow:hidden;margin-top:20px}
-#mensaje-oculto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;padding:30px;text-align:center;font-family:'Playfair Display'}
-#canvas-linterna{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+/* NO FUGA */
+#no-fuga-wrap{position:relative;width:100%;height:180px;background:#fff0f3;border-radius:18px;overflow:hidden;margin-top:12px}
+#btnNoFuga{position:absolute;left:60%;top:50%;transform:translate(-50%,-50%);background:#333;color:white;border:none;padding:11px 22px;border-radius:30px;cursor:pointer;transition:.15s}
 
-/* OTROS */
-.kiss{position:fixed;top:-20px;font-size:28px;animation:caer 3s linear forwards;z-index:9999;pointer-events:none}
+/* ROMPECABEZAS */
+#puzzle-board{width:300px;height:300px;display:none;grid-template-columns:repeat(3,1fr);gap:3px;margin:12px auto;background:#222;padding:3px;border-radius:10px}
+.puzzle-piece{width:100%;height:100%;background-size:300px 300px;cursor:grab;border-radius:4px}
+
+/* AHORCADO */
+#ahorcado-letras{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px;max-width:350px;margin-inline:auto}
+.letra-btn{width:34px;height:34px;border:1px solid #ffb3c1;background:white;border-radius:8px;cursor:pointer;font-weight:600}
+#palabra{font-size:28px;letter-spacing:8px;margin:15px 0;font-weight:700}
+
+/* RULETA */
+#ruleta{width:220px;height:220px;border-radius:50%;border:8px solid var(--rosa);margin:15px auto;position:relative;background:conic-gradient(#ff8fa3 0 90deg, #ff4d6d 90deg 180deg, #ffb3c1 180deg 270deg, #ff758f 270deg 360deg);transition:transform 3s cubic-bezier(.17,.67,.12,.99);display:flex;align-items:center;justify-content:center}
+#ruleta::after{content:'▼';position:absolute;top:-28px;font-size:24px;color:var(--rosa)}
+.kiss{position:fixed;top:-20px;font-size:24px;animation:caer 3s linear forwards;z-index:9999;pointer-events:none}
 @keyframes caer{to{transform:translateY(110vh) rotate(360deg)}}
-.heart-cursor{position:fixed;pointer-events:none;z-index:99999;font-size:20px;transition:transform.15s}
-#typewriter{border-right:3px solid var(--rosa);display:inline-block;animation:blink.7s infinite}
-@keyframes blink{50%{border-color:transparent}}
 
-/* RASCA */
-#rasca-container{width:100%;max-width:400px;height:150px;background:#222;border-radius:15px;position:relative;margin:30px auto;overflow:hidden}
-#rasca-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;padding:20px;text-align:center}
-#rasca-canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+/* LINTERNA + RASCA */
+#linterna-container{position:relative;width:100%;height:360px;background:#000;border-radius:20px;overflow:hidden;margin-top:12px}
+#mensaje-oculto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:1.3rem;padding:20px;text-align:center;font-family:'Playfair Display'}
+#canvas-linterna{position:absolute;inset:0;width:100%;height:100%}
+#rasca-container{width:100%;max-width:380px;height:130px;background:#222;border-radius:15px;position:relative;margin:15px auto;overflow:hidden}
+#rasca-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;padding:15px;text-align:center}
+#rasca-canvas{position:absolute;inset:0;width:100%;height:100%}
 </style>
 </head>
 <body>
 <div id="progress-bar"></div>
-
-<div id="zoom-modal" onclick="this.style.display='none'"><img id="zoom-img" src=""></div>
+<div id="zoom-modal" onclick="this.style.display='none'"><img id="zoom-img"></div>
 
 <div id="sobre-container">
-  <h1 style="margin-bottom:20px"><span id="typewriter"></span></h1>
-  <div class="sobre" id="sobre" onclick="abrirSobre()">
-    <div class="carta-sobre"><p><b>Tocá para abrir<br>no seas ansiosa... 😏</b></p></div>
-  </div>
-  <p style="margin-top:20px;opacity:.6">Hecho con todo mi amor • Tocá el sobre</p>
-  <audio id="musica" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_8cb749d832.mp3?filename=romantic-112199.mp3" type="audio/mpeg"></audio>
+  <h1 style="min-height:45px;font-size:1.9rem"><span id="typewriter"></span></h1>
+  <div class="sobre" id="sobre" onclick="abrirSobre()"><div class="carta-sobre"><b>Tocá para abrir<br>no seas ansiosa... 😏</b></div></div>
+  <p style="margin-top:18px;opacity:.6">Hecho con amor para vos</p>
+  <audio id="musica" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_8cb749d832.mp3" type="audio/mpeg"></audio>
 </div>
 
 <section id="contenido" style="display:none">
-  <h1>Para mi persona favorita</h1>
-  <div id="contador"></div>
-  <p>Hace <span id="dias"></span> días que sos mi persona ♡</p>
+<h1>Para mi persona favorita</h1>
+<div id="contador" style="font-size:2rem;color:var(--rosa);font-weight:700;margin:12px 0"></div>
+<p>Hace <span id="dias"></span> días que sos mi persona ♡</p>
 
-  <div style="margin-top:50px">
-    <h2>Nuestros recuerdos - Arrastralos y tocalos</h2>
-    <div class="polaroid-wrap">
-      <div class="polaroid" style="left:10%;top:20px;--r:-8deg" onclick="zoom(this)"><img src="https://picsum.photos/200/200?1"><span>Primera foto ♡</span></div>
-      <div class="polaroid" style="left:40%;top:80px;--r:6deg" onclick="zoom(this)"><img src="https://picsum.photos/200/200?2"><span>Tu sonrisa</span></div>
-      <div class="polaroid" style="left:20%;top:240px;--r:-3deg" onclick="zoom(this)"><img src="https://picsum.photos/200/200?3"><span>Nosotros</span></div>
-    </div>
-  </div>
+<!-- POLAROIDS -->
+<div class="card-juego"><h2>📸 Nuestros recuerdos</h2><p style="opacity:.6;font-size:12px">Arrastrá y tocá para agrandar</p><div class="polaroid-wrap"><div class="polaroid" style="left:5%;top:15px;--r:-8deg" onclick="zoom(this)"><img src="https://picsum.photos/200/200?1"><span>Primera ♡</span></div><div class="polaroid" style="left:40%;top:60px;--r:6deg" onclick="zoom(this)"><img src="https://picsum.photos/200/200?2"><span>Tu sonrisa</span></div><div class="polaroid" style="left:15%;top:210px;--r:-3deg" onclick="zoom(this)"><img src="https://picsum.photos/200/200?3"><span>Nosotros</span></div></div></div>
 
-  <div style="margin-top:60px">
-    <h2>¿Jugamos algo?</h2>
-    <p>Atrapá 10 corazones en 10 segundos</p>
-    <button class="btn-principal" style="margin-top:15px" onclick="iniciarJuego()">Jugar ahora 💘</button>
-    <div id="juego-area"><div id="score" style="position:absolute;top:10px;left:15px;font-weight:600">0/10</div></div>
-  </div>
+<!-- JUEGO ATRAPA ORIGINAL -->
+<div class="card-juego"><h2>💘 Juego: Atrapá mi corazón</h2><button class="btn" onclick="iniciarAtrapa()">Jugar</button><div id="juego-area"><div id="score" style="position:absolute;top:8px;left:12px;font-weight:700">0/10</div></div></div>
 
-  <div style="margin-top:80px">
-    <h2>Mensaje secreto con linterna</h2>
-    <div id="linterna-container">
-      <div id="mensaje-oculto">Si estás leyendo esto es porque sos la persona más curiosa y hermosa del mundo. Te amo más de lo que te imaginás. - Yo ♡</div>
-      <canvas id="canvas-linterna"></canvas>
-    </div>
-  </div>
+<!-- JUEGO 1 NO FUGA -->
+<div class="card-juego"><h2>😏 Juego 1: El NO que se escapa</h2><p>Intentá tocar el NO</p><div id="no-fuga-wrap"><button id="btnSiCrece" class="btn" onclick="ganarNo()" style="position:absolute;left:20%;top:50%;transform:translate(-50%,-50%)">SÍ ♡</button><button id="btnNoFuga" onmouseover="moverNo()" ontouchstart="moverNo()">NO</button></div></div>
 
-  <div style="margin-top:80px">
-    <h2>Rascá para ver tu sorpresa final</h2>
-    <p style="opacity:.6">Usá el dedo para rascar</p>
-    <div id="rasca-container">
-      <div id="rasca-text">TE AMO MÁS QUE AYER, PERO MENOS QUE MAÑANA ♡<br>Ahora decime que sí!</div>
-      <canvas id="rasca-canvas"></canvas>
-    </div>
-  </div>
+<!-- JUEGO 2 MEMORY -->
+<div class="card-juego"><h2>🧠 Juego 2: Memory de nosotros</h2><button class="btn" onclick="iniciarMemory()">Jugar Memory</button><div id="memory-board"></div><p id="memory-msg" style="color:var(--rosa);font-weight:700;margin-top:8px"></p></div>
 
-  <div style="margin-top:60px">
-    <h2>¿Querés ser mi persona para siempre?</h2>
-    <p style="opacity:.6;margin-bottom:15px">Mantené presionado el botón 3 segundos</p>
-    <button class="btn-principal" id="btnSi" onmousedown="presionar()" onmouseup="soltar()" ontouchstart="presionar()" ontouchend="soltar()" style="margin:15px;transition:.2s">SÍ, QUIERO ♡ (mantené)</button>
-    <div style="margin-top:15px">
-      <button class="btn-principal" style="background:#333" onclick="window.print()">🖨️ Imprimir nuestra historia</button>
-    </div>
-  </div>
+<!-- JUEGO 3 ROMPECABEZAS -->
+<div class="card-juego"><h2>🧩 Juego 3: Armá nuestra foto</h2><p>Arrastrá para ordenar la foto</p><button class="btn" onclick="iniciarPuzzle()">Jugar Puzzle</button><div id="puzzle-board"></div><p id="puzzle-msg" style="margin-top:8px;font-weight:700;color:var(--rosa)"></p></div>
+
+<!-- JUEGO 4 AHORCADO -->
+<div class="card-juego"><h2>💌 Juego 4: Ahorcado del amor</h2><p>Adiviná la frase</p><div id="palabra"></div><p id="vidas" style="opacity:.7"></p><div id="ahorcado-letras"></div><p id="ahorcado-msg" style="margin-top:10px;font-weight:700"></p></div>
+
+<!-- JUEGO 5 RULETA -->
+<div class="card-juego"><h2>🎡 Juego 5: Ruleta de besos</h2><p>Girá y mirá que te toca</p><div id="ruleta"><b style="background:white;padding:6px 12px;border-radius:20px">GIRAR</b></div><button class="btn" onclick="girarRuleta()">Girar ruleta</button><p id="ruleta-result" style="margin-top:12px;font-weight:700;font-size:18px"></p></div>
+
+<!-- LINTERNA -->
+<div class="card-juego"><h2>🔦 Mensaje con linterna</h2><div id="linterna-container"><div id="mensaje-oculto">Sos la persona más hermosa y curiosa que conocí. Gracias por existir ♡</div><canvas id="canvas-linterna"></canvas></div></div>
+
+<!-- RASCA -->
+<div class="card-juego"><h2>✨ Rascá tu sorpresa final</h2><div id="rasca-container"><div id="rasca-text">TE AMO MÁS QUE AYER PERO MENOS QUE MAÑANA ♡<br>Ahora decime que sí</div><canvas id="rasca-canvas"></canvas></div></div>
+
+<div style="margin-top:40px"><button class="btn" id="btnFinal" onmousedown="presionar()" onmouseup="soltar()" ontouchstart="presionar()" ontouchend="soltar()" style="padding:18px 40px;font-size:18px">MANTENÉ 3 SEG PARA SÍ ♡</button><br><br><button class="btn" style="background:#333" onclick="window.print()">🖨️ Imprimir</button></div>
 </section>
 
 <script>
-const inicio = new Date('2024-02-14T00:00:00');
-const miNumero = '5491123456789';
+const inicio=new Date('2024-02-14T00:00:00'); const miNumero='5491123456789';
+const texto="Tengo algo para vos ♡"; let ti=0; function escribir(){const c=document.getElementById('typewriter');if(ti<texto.length){c.innerText=texto.substring(0,ti+1);ti++;setTimeout(escribir,100)}}escribir();
+window.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-innerHeight;document.getElementById('progress-bar').style.width=window.scrollY/h*100+'%'})
+document.addEventListener('mousemove',e=>{if(Math.random()>.85){let h=document.createElement('div');h.className='heart-cursor';h.innerText='💖';h.style.left=e.clientX+'px';h.style.top=e.clientY+'px';document.body.appendChild(h);setTimeout(()=>{h.style.transform='translateY(-20px) scale(0)';h.style.opacity='0'},80);setTimeout(()=>h.remove(),600)}})
+function abrirSobre(){confetti({particleCount:140,spread:80,origin:{y:.6}});document.getElementById('musica').play().catch(()=>{});document.getElementById('sobre').classList.add('abierto');if(navigator.vibrate)navigator.vibrate(30);setTimeout(()=>{document.getElementById('sobre-container').style.opacity='0';setTimeout(()=>{document.getElementById('sobre-container').style.display='none';document.getElementById('contenido').style.display='block';iniciarLinterna();iniciarRasca();iniciarAhorcado()},900)},700)}
+function actualizarContador(){let d=Math.floor((new Date()-inicio)/86400000);document.getElementById('dias').innerText=d;document.getElementById('contador').innerText=`Hace ${d} días`}actualizarContador();
+function zoom(el){document.getElementById('zoom-img').src=el.querySelector('img').src;document.getElementById('zoom-modal').style.display='flex'}
+document.querySelectorAll('.polaroid').forEach(el=>{let x=0,y=0,ix,iy,m=false;el.addEventListener('mousedown',s);el.addEventListener('touchstart',s,{passive:false});function s(e){m=true;const p=e.touches?e.touches[0]:e;ix=p.clientX-x;iy=p.clientY-y;el.style.zIndex=100}window.addEventListener('mousemove',mv);window.addEventListener('touchmove',mv,{passive:false});function mv(e){if(!m)return;e.preventDefault();const p=e.touches?e.touches[0]:e;x=p.clientX-ix;y=p.clientY-iy;el.style.transform=`translate(${x}px,${y}px) rotate(${el.style.getPropertyValue('--r')})`}window.addEventListener('mouseup',()=>m=false);window.addEventListener('touchend',()=>m=false)})
 
-// TYPEWRITER
-const texto="Tengo algo para vos ♡";let ti=0;function escribir(){if(ti<texto.length){document.getElementById('typewriter').innerText+=texto.charAt(ti);ti++;setTimeout(escribir,80)}}escribir();
+function lluvia(){for(let i=0;i<35;i++){setTimeout(()=>{const b=document.createElement('div');b.className='kiss';b.innerText=['😘','💋','💖'][Math.floor(Math.random()*3)];b.style.left=Math.random()*100+'vw';document.body.appendChild(b);setTimeout(()=>b.remove(),3000)},i*70)}}
+function siQuiero(){lluvia();confetti({particleCount:180});setTimeout(()=>window.open(`https://wa.me/${miNumero}?text=${encodeURIComponent('SÍ, quiero ser tu persona para siempre ♡')}`,'_blank'),700)}
 
-// PROGRESS BAR
-window.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-window.innerHeight;let s=window.scrollY;document.getElementById('progress-bar').style.width=(s/h*100)+'%'})
+// ATRAPA
+let pts=0,act=false,tmr;function iniciarAtrapa(){const a=document.getElementById('juego-area');a.style.display='block';pts=0;act=true;document.getElementById('score').innerText='0/10';a.innerHTML='<div id="score" style="position:absolute;top:8px;left:12px;font-weight:700">0/10</div>';tmr=setInterval(()=>{if(!act)return;const c=document.createElement('div');c.className='corazon-game';c.innerText='💖';c.style.left=Math.random()*(a.clientWidth-40)+'px';c.style.top=Math.random()*(a.clientHeight-40)+'px';c.onclick=()=>{pts++;document.getElementById('score').innerText=pts+'/10';c.remove();if(pts>=10){act=false;clearInterval(tmr);a.innerHTML='<h2 style="margin-top:120px">Ganaste! 💖</h2>';lluvia();confetti()}};a.appendChild(c);setTimeout(()=>c.remove(),1200)},550);setTimeout(()=>{if(pts<10&&act){act=false;clearInterval(tmr);alert('Casi!')} },10000)}
 
-// CURSOR CORAZONES
-let hearts=[];document.addEventListener('mousemove',e=>{if(Math.random()>.7){let h=document.createElement('div');h.className='heart-cursor';h.innerText='💖';h.style.left=e.clientX+'px';h.style.top=e.clientY+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),800)}})
+// 1 NO FUGA
+let siSize=1;function moverNo(){const btn=document.getElementById('btnNoFuga');const wrap=document.getElementById('no-fuga-wrap');btn.style.left=Math.random()*(wrap.clientWidth-70)+'px';btn.style.top=Math.random()*(wrap.clientHeight-40)+'px';siSize+=0.12;document.getElementById('btnSiCrece').style.transform=`translate(-50%,-50%) scale(${siSize})`;if(navigator.vibrate)navigator.vibrate(15)}function ganarNo(){confetti();lluvia();document.getElementById('no-fuga-wrap').innerHTML='<h2 style="margin-top:70px">Sabía que ibas a decir que SÍ 😏💖</h2>'}
 
-// SOBRE + CONFETTI + MUSICA
-function abrirSobre(){
-  confetti({particleCount:150,spread:90,origin:{y:0.6},colors:['#ff4d6d','#ffb3c1']});
-  document.getElementById('musica').play().catch(()=>{});
-  document.getElementById('sobre').classList.add('abierto');
-  if(navigator.vibrate)navigator.vibrate(50);
-  setTimeout(()=>{
-    document.getElementById('sobre-container').style.opacity='0';
-    setTimeout(()=>{
-      document.getElementById('sobre-container').style.display='none';
-      document.getElementById('contenido').style.display='block';
-      iniciarLinterna(); iniciarRasca();
-      document.body.style.cursor='auto';
-    },1000)
-  },800)
-}
+// 2 MEMORY
+const fotos=['💖','🌹','😍','💖','🌹','😍'];function iniciarMemory(){const b=document.getElementById('memory-board');b.style.display='grid';b.innerHTML='';let mez=[...fotos].sort(()=>Math.random()-.5);let volt=[];let enc=0;mez.forEach(f=>{const d=document.createElement('div');d.className='memory-card';d.dataset.v=f;d.innerText='?';d.onclick=()=>{if(volt.length>=2||d.classList.contains('volteada'))return;d.classList.add('volteada');d.innerText=f;volt.push(d);if(volt.length==2){if(volt[0].dataset.v==volt[1].dataset.v){volt.forEach(c=>c.classList.add('ok'));enc++;volt=[];if(enc==3){document.getElementById('memory-msg').innerText='¡Ganaste! Tenés memoria de elefante con nosotros ♡';lluvia();confetti()}}else setTimeout(()=>{volt.forEach(c=>{c.classList.remove('volteada');c.innerText='?'});volt=[]},700)}};b.appendChild(d)})}
 
-// CONTADOR
-function actualizarContador(){let diff=Math.floor((new Date()-inicio)/(1000*60*60*24));document.getElementById('dias').innerText=diff;document.getElementById('contador').innerText=`Hace ${diff} días` }actualizarContador();
+// 3 PUZZLE
+function iniciarPuzzle(){const board=document.getElementById('puzzle-board');board.style.display='grid';board.innerHTML='';document.getElementById('puzzle-msg').innerText='';let piezas=[...Array(9).keys()].sort(()=>Math.random()-.5);piezas.forEach((n,i)=>{const d=document.createElement('div');d.className='puzzle-piece';d.draggable=true;d.dataset.correct=n;d.dataset.current=i;d.style.backgroundImage=`url('https://picsum.photos/300/300?random=5')`;d.style.backgroundPosition=`${-(n%3)*100}px ${-Math.floor(n/3)*100}px`;d.addEventListener('dragstart',e=>e.dataTransfer.setData('text',i));d.addEventListener('dragover',e=>e.preventDefault());d.addEventListener('drop',e=>{e.preventDefault();let from=e.dataTransfer.getData('text');let to=[...board.children].indexOf(d);let children=[...board.children];let temp=children[from].style.backgroundPosition;children[from].style.backgroundPosition=children[to].style.backgroundPosition;children[to].style.backgroundPosition=temp;let tempD=children[from].dataset.correct;children[from].dataset.correct=children[to].dataset.correct;children[to].dataset.correct=tempD;checkPuzzle()});board.appendChild(d)});function checkPuzzle(){let ok=[...board.children].every((c,i)=>parseInt(c.dataset.correct)==i);if(ok){document.getElementById('puzzle-msg').innerText='¡Lo armaste! Nuestra foto completa ♡';lluvia();confetti()}}}
 
-// POLAROIDS DRAG + ZOOM
-function zoom(el){document.getElementById('zoom-img').src=el.querySelector('img').src;document.getElementById('zoom-modal').style.display='flex';if(navigator.vibrate)navigator.vibrate(30)}
-document.querySelectorAll('.polaroid').forEach(el=>{
-  let x=0,y=0,iniX,iniY,moving=false;
-  el.addEventListener('mousedown',start); el.addEventListener('touchstart',start,{passive:false});
-  function start(e){moving=true; const p=e.touches?e.touches[0]:e; iniX=p.clientX-x; iniY=p.clientY-y; el.style.zIndex=100}
-  window.addEventListener('mousemove',move); window.addEventListener('touchmove',move,{passive:false});
-  function move(e){if(!moving)return; if(e.cancelable)e.preventDefault(); const p=e.touches?e.touches[0]:e; x=p.clientX-iniX; y=p.clientY-iniY; el.style.transform=`translate(${x}px,${y}px) rotate(${el.style.getPropertyValue('--r')||'0deg'})`}
-  window.addEventListener('mouseup',()=>moving=false); window.addEventListener('touchend',()=>moving=false);
+// 4 AHORCADO
+const frase="TE AMO"; let letrasAdiv=[],intentos=5;
+function iniciarAhorcado(){letrasAdiv=Array(frase.length).fill(false);frase.split('').forEach((c,i)=>{if(c==' ')letrasAdiv[i]=true});intentos=5;renderAhorcado()}
+function renderAhorcado(){
+let display=frase.split('').map((c,i)=>letrasAdiv[i]||c==' '?c:'_').join(' ');
+document.getElementById('palabra').innerText=display;
+document.getElementById('vidas').innerText='❤️'.repeat(intentos)+' | Intentos: '+intentos;
+let cont=document.getElementById('ahorcado-letras');cont.innerHTML='';
+'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('').forEach(l=>{
+let b=document.createElement('button');b.className='letra-btn';b.innerText=l;
+b.onclick=()=>{b.disabled=true;if(frase.includes(l)){frase.split('').forEach((c,i)=>{if(c==l)letrasAdiv[i]=true})}else{intentos--}renderAhorcado();checkAhorcado()};
+cont.appendChild(b);
 });
+}
+function checkAhorcado(){if(letrasAdiv.every(v=>v)){document.getElementById('ahorcado-msg').innerText='¡Ganaste! La frase era TE AMO ♡';lluvia();confetti()}else if(intentos<=0){document.getElementById('ahorcado-msg').innerText='Era TE AMO, pero igual te amo yo más ♡'}}
 
-// JUEGO
-let puntos=0, juegoActivo=false, timer;
-function iniciarJuego(){
-  const area=document.getElementById('juego-area'); area.style.display='block'; puntos=0; juegoActivo=true;
-  document.getElementById('score').innerText='0/10'; area.innerHTML='<div id="score" style="position:absolute;top:10px;left:15px;font-weight:600">0/10</div>';
-  timer=setInterval(crearCorazon,500);
-  setTimeout(()=>{if(puntos<10&&juegoActivo){juegoActivo=false;clearInterval(timer);alert('Casi! Intentá de nuevo ♡')} },10000);
-}
-function crearCorazon(){
-  if(!juegoActivo)return;
-  const area=document.getElementById('juego-area');
-  const c=document.createElement('div'); c.className='corazon-game'; c.innerText='💖';
-  c.style.left=Math.random()*(area.clientWidth-40)+'px'; c.style.top=Math.random()*(area.clientHeight-50)+'px';
-  c.onclick=()=>{puntos++; if(navigator.vibrate)navigator.vibrate(20); document.getElementById('score').innerText=puntos+'/10'; c.remove(); if(puntos>=10){juegoActivo=false;clearInterval(timer);area.innerHTML='<h2 style="margin-top:130px">Ganaste!! Sos increíble 😍</h2>'; lluviaBesos(); confetti()}}
-  area.appendChild(c); setTimeout(()=>c.remove(),1300);
-}
-function lluviaBesos(){for(let i=0;i<40;i++){setTimeout(()=>{const b=document.createElement('div'); b.className='kiss'; b.innerText=['😘','💋','😍','💖'][Math.floor(Math.random()*4)]; b.style.left=Math.random()*100+'vw'; document.body.appendChild(b); setTimeout(()=>b.remove(),3000)},i*80)}}
+// 5 RULETA
+let girando=false;function girarRuleta(){if(girando)return;girando=true;const r=document.getElementById('ruleta');const premios=['Beso 😘','Abrazo 🫂','Te amo 💖','Cita conmigo 🍝','Te debo un beso 💋','Me amás más 😏'];let vueltas=1080+Math.random()*720;r.style.transform=`rotate(${vueltas}deg)`;setTimeout(()=>{let idx=Math.floor(((vueltas%360)/360)*premios.length);let premio=premios[idx%premios.length];document.getElementById('ruleta-result').innerText='Te tocó: '+premio+' ¡Reclamalo por WhatsApp!';lluvia();confetti();girando=false},3100)}
 
-// BOTON MANTENER PRESIONADO
-let pressTimer, presionando=false;
-function presionar(){presionando=true;let scale=1;pressTimer=setInterval(()=>{scale+=0.02;document.getElementById('btnSi').style.transform=`scale(${scale})`;if(scale>=1.8){clearInterval(pressTimer); siQuiero()}},40)}
-function soltar(){clearInterval(pressTimer);document.getElementById('btnSi').style.transform='scale(1)'}
-function siQuiero(){lluviaBesos();confetti({particleCount:200});setTimeout(()=>{window.open(`https://wa.me/${miNumero}?text=${encodeURIComponent('Sí, quiero ser tu persona para siempre ♡')}`,'_blank')},800)}
-
-// LINTERNA
-function iniciarLinterna(){
-  const canvas=document.getElementById('canvas-linterna'); const ctx=canvas.getContext('2d');
-  function resize(){canvas.width=canvas.parentElement.clientWidth;canvas.height=canvas.parentElement.clientHeight; ctx.fillStyle='black'; ctx.fillRect(0,0,canvas.width,canvas.height)}
-  resize(); window.addEventListener('resize',resize); let mx=-100,my=-100;
-  function draw(){ctx.globalCompositeOperation='source-over'; ctx.fillStyle='black'; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.globalCompositeOperation='destination-out'; let grad=ctx.createRadialGradient(mx,my,0,mx,my,120); grad.addColorStop(0,'rgba(0,0,0,1)'); grad.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=grad; ctx.beginPath(); ctx.arc(mx,my,120,0,Math.PI*2); ctx.fill()}
-  canvas.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top; draw()});
-  canvas.addEventListener('touchmove',e=>{const r=canvas.getBoundingClientRect(); mx=e.touches[0].clientX-r.left; my=e.touches[0].clientY-r.top; draw(); e.preventDefault()},{passive:false}); draw();
-}
-// RASCA Y GANA
-function iniciarRasca(){
-  const c=document.getElementById('rasca-canvas'); const ctx=c.getContext('2d');
-  function resize(){c.width=c.parentElement.clientWidth;c.height=c.parentElement.clientHeight;ctx.fillStyle='#C0C0C0';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#888';ctx.font='14px Poppins';ctx.fillText('RASCÁ AQUÍ 👆',c.width/2-50,c.height/2)} resize();
-  let drawing=false;
-  function scratch(x,y){ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,25,0,Math.PI*2);ctx.fill()}
-  c.addEventListener('mousedown',()=>drawing=true); c.addEventListener('mouseup',()=>drawing=false);
-  c.addEventListener('mousemove',e=>{if(!drawing)return;const r=c.getBoundingClientRect();scratch(e.clientX-r.left,e.clientY-r.top)});
-  c.addEventListener('touchstart',()=>drawing=true); c.addEventListener('touchend',()=>drawing=false);
-  c.addEventListener('touchmove',e=>{const r=c.getBoundingClientRect();scratch(e.touches[0].clientX-r.left,e.touches[0].clientY-r.top);e.preventDefault()},{passive:false});
-}
+// LINTERNA Y RASCA
+function iniciarLinterna(){const c=document.getElementById('canvas-linterna');const ctx=c.getContext('2d');function resize(){c.width=c.parentElement.clientWidth;c.height=c.parentElement.clientHeight;ctx.fillStyle='black';ctx.fillRect(0,0,c.width,c.height)}resize();let mx=-100,my=-100;function draw(){ctx.globalCompositeOperation='source-over';ctx.fillStyle='black';ctx.fillRect(0,0,c.width,c.height);ctx.globalCompositeOperation='destination-out';let g=ctx.createRadialGradient(mx,my,0,mx,my,110);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(mx,my,110,0,Math.PI*2);ctx.fill()}c.addEventListener('mousemove',e=>{let rect=c.getBoundingClientRect();mx=e.clientX-rect.left;my=e.clientY-rect.top;draw()});c.addEventListener('touchmove',e=>{let rect=c.getBoundingClientRect();mx=e.touches[0].clientX-rect.left;my=e.touches[0].clientY-rect.top;draw();e.preventDefault()},{passive:false});draw()}
+function iniciarRasca(){const c=document.getElementById('rasca-canvas');const ctx=c.getContext('2d');function resize(){c.width=c.parentElement.clientWidth;c.height=c.parentElement.clientHeight;ctx.fillStyle='#c0c0c0';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#888';ctx.fillText('RASCÁ AQUÍ 👆',c.width/2-50,c.height/2)}resize();let d=false;function s(x,y){ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,22,0,Math.PI*2);ctx.fill()}c.addEventListener('mousedown',()=>d=true);c.addEventListener('mouseup',()=>d=false);c.addEventListener('mousemove',e=>{if(!d)return;let r=c.getBoundingClientRect();s(e.clientX-r.left,e.clientY-r.top)});c.addEventListener('touchstart',()=>d=true);c.addEventListener('touchend',()=>d=false);c.addEventListener('touchmove',e=>{let r=c.getBoundingClientRect();s(e.touches[0].clientX-r.left,e.touches[0].clientY-r.top);e.preventDefault()},{passive:false})}
+let pressT;function presionar(){let s=1;pressT=setInterval(()=>{s+=0.03;document.getElementById('btnFinal').style.transform=`scale(${s})`;if(s>=1.7){clearInterval(pressT);siQuiero()}},35)}function soltar(){clearInterval(pressT);document.getElementById('btnFinal').style.transform='scale(1)'}
 </script>
 </body>
 </html>
