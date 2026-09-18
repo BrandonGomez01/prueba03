@@ -116,7 +116,7 @@ section{max-width:850px;margin:0 auto;padding:50px 18px;text-align:center}
 </section>
 
 <script>
-const inicio=new Date('2024-02-14T00:00:00'); const miNumero='5491123456789';
+const inicio=new Date('2024-02-14T00:00:00'); const miNumero='5491141643081';
 const texto="Tengo algo para vos ♡"; let ti=0; function escribir(){const c=document.getElementById('typewriter');if(ti<texto.length){c.innerText=texto.substring(0,ti+1);ti++;setTimeout(escribir,100)}}escribir();
 window.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-innerHeight;document.getElementById('progress-bar').style.width=window.scrollY/h*100+'%'})
 document.addEventListener('mousemove',e=>{if(Math.random()>.85){let h=document.createElement('div');h.className='heart-cursor';h.innerText='💖';h.style.left=e.clientX+'px';h.style.top=e.clientY+'px';document.body.appendChild(h);setTimeout(()=>{h.style.transform='translateY(-20px) scale(0)';h.style.opacity='0'},80);setTimeout(()=>h.remove(),600)}})
