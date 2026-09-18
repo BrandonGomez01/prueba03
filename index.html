@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>El Universo Completo ♡</title>
+<title>Mi Mundo Entero 23/05/01 ♡</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
@@ -32,18 +32,18 @@ canvas{border-radius:14px;touch-action:none}
 
 <div id="sobre-container">
 <h1 id="typewriter" style="min-height:40px;font-size:1.8rem"></h1>
-<div class="sobre" id="sobre" onclick="abrir()"><div class="carta-sobre"><b>Tocá para abrir<br>mi universo ♡</b></div></div>
+<div class="sobre" id="sobre" onclick="abrir()"><div class="carta-sobre"><b>Tocá para abrir<br>mi mundo entero ♡</b></div></div>
 <audio id="musica" loop><source src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_8cb749d832.mp3" type="audio/mpeg"></audio>
 </div>
 
 <div id="contenido" style="display:none;padding:18px">
-<h1 style="text-align:center">Para vos, mi universo entero</h1>
+<h1 style="text-align:center">Para mi mundo entero - 23/05/01</h1>
 
 <div class="card"><h2>💘 Atrapá corazones</h2><button class="btn" onclick="jAtrapa()">Jugar</button><div id="areaAtrapa" class="game-area" style="display:none"><div id="scoreA" style="position:absolute;top:6px;left:10px;font-weight:700">0/10</div></div></div>
 
-<div class="card"><h2>😏 Juego 1: El NO que se escapa</h2><div style="position:relative;height:170px;background:#fff0f3;border-radius:16px;margin-top:10px" id="wrapNo"><button id="btnSi1" class="btn" onclick="si()" style="position:absolute;left:20%;top:50%;transform:translate(-50%,-50%)">SÍ ♡</button><button id="btnNo" style="position:absolute;left:60%;top:50%;transform:translate(-50%,-50%);background:#333;color:white;border:none;padding:10px 20px;border-radius:20px" onmouseover="moverNo()" ontouchstart="moverNo()">NO</button></div></div>
+<div class="card"><h2>😏 Juego 1: El NO que se escapa</h2><div style="position:relative;height:170px;background:#fff0f3;border-radius:16px;margin-top:10px" id="wrapNo"><button id="btnSi1" class="btn" onclick="ganarNo()" style="position:absolute;left:20%;top:50%;transform:translate(-50%,-50%)">SÍ ♡</button><button id="btnNo" style="position:absolute;left:60%;top:50%;transform:translate(-50%,-50%);background:#333;color:white;border:none;padding:10px 20px;border-radius:20px" onmouseover="moverNo()" ontouchstart="moverNo()">NO</button></div></div>
 
-<div class="card"><h2>🧠 Juego 2: Memory</h2><button class="btn" onclick="initMemory()">Jugar</button><div id="boardMemory" style="display:none;grid-template-columns:repeat(3,1fr);gap:8px;max-width:300px;margin:10px auto"></div><p id="msgMemory"></p></div>
+<div class="card"><h2>🧠 Juego 2: Memory</h2><button class="btn" onclick="initMemory()">Jugar</button><div id="boardMemory" style="display:none;grid-template-columns:repeat(3,1fr);gap:8px;max-width:300px;margin:10px auto"></div><p id="msgMemory" style="color:var(--rosa);font-weight:700"></p></div>
 
 <div class="card"><h2>🧩 Juego 3: Puzzle foto</h2><button class="btn" onclick="initPuzzle()">Jugar</button><div id="boardPuzzle" style="width:300px;height:300px;display:none;grid-template-columns:repeat(3,1fr);gap:2px;margin:10px auto;background:#222;padding:2px;border-radius:8px"></div></div>
 
@@ -51,104 +51,208 @@ canvas{border-radius:14px;touch-action:none}
 
 <div class="card"><h2>🎡 Juego 5: Ruleta besos</h2><div id="ruleta" style="width:200px;height:200px;border-radius:50%;border:7px solid var(--rosa);margin:10px auto;background:conic-gradient(#ff8fa3 0 90deg,#ff4d6d 90deg 180deg,#ffb3c1 180deg 270deg,#ff758f 270deg 360deg);transition:transform 3s cubic-bezier(.17,.67,.12,.99);display:flex;align-items:center;justify-content:center">▼</div><button class="btn" onclick="girar()">Girar</button><p id="resRuleta" style="font-weight:700"></p></div>
 
-<div class="card"><h2>🌀 Juego 6: Laberinto de nuestro amor</h2><p style="font-size:12px;opacity:.6">Llevá el dedo sin tocar las paredes hasta el corazón</p><canvas id="labCanvas" width="320" height="320" style="background:#111;margin-top:8px"></canvas><button class="btn" onclick="initLab()">Reiniciar laberinto</button><p id="msgLab"></p></div>
+<div class="card"><h2>🌀 Juego 6: Laberinto de nuestro amor</h2><p style="font-size:12px;opacity:.6">Llevá el dedo/mouse sin tocar paredes hasta el corazón rojo</p><canvas id="labCanvas" width="320" height="320" style="background:#111;margin-top:8px"></canvas><br><button class="btn" onclick="initLab()">Reiniciar laberinto</button><p id="msgLab" style="font-weight:700;color:var(--rosa)"></p></div>
 
-<div class="card"><h2>🐦 Juego 7: Flappy Love</h2><p>Tocá para volar entre corazones</p><canvas id="flappy" width="320" height="400" style="background:#c8e7ff;margin-top:8px"></canvas><button class="btn" onclick="initFlappy()">Jugar</button><p id="scoreFlappy"></p></div>
+<div class="card"><h2>🐦 Juego 7: Flappy Love - ARREGLADO</h2><p>Tocá, click o espacio para volar</p><canvas id="flappy" width="320" height="400" style="background:#c8e7ff;margin-top:8px"></canvas><br><button class="btn" onclick="initFlappy()">Jugar</button><p id="scoreFlappy" style="font-weight:700"></p></div>
 
-<div class="card"><h2>✂️ Juego 8: Corta la cuerda</h2><p>Cortá la soga con el dedo para que el corazón caiga en mi caja</p><canvas id="cuerdaCanvas" width="320" height="400" style="background:#fff0f3;margin-top:8px"></canvas><button class="btn" onclick="initCuerda()">Reiniciar</button></div>
+<div class="card"><h2>✂️ Juego 8: Corta la cuerda - Soga larga</h2><p>Cortá la soga punteada con el dedo/mouse</p><canvas id="cuerdaCanvas" width="320" height="400" style="background:#fff0f3;margin-top:8px"></canvas><br><button class="btn" onclick="initCuerda()">Reiniciar</button></div>
 
-<div class="card"><h2>☁️ Juego 9: Atrapá solo lo nuestro</h2><p>Atrapá: besos, abrazos, si - Esquivá: celos, no, peleas</p><div id="areaNuestro" class="game-area" style="display:block"><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);font-size:32px" id="canasta">🧺</div></div><button class="btn" onclick="initNuestro()">Jugar</button><p id="scoreNuestro"></p></div>
+<div class="card"><h2>☁️ Juego 9: Atrapá solo lo nuestro - PC y celu</h2><p>PC: mové mouse o flechas | Celu: desliza dedo. Click también suma</p><div id="areaNuestro" class="game-area" style="display:block"><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);font-size:32px" id="canasta">🧺</div></div><button class="btn" onclick="initNuestro()">Jugar</button><p id="scoreNuestro" style="font-weight:700"></p></div>
 
-<div class="card"><h2>💯 Juego 10: Test del 100% - Todo se responde con SI</h2><div id="testBox"><h3 id="preg10"></h3><input id="resp10" placeholder="Escribí si" style="padding:10px;border-radius:20px;border:1px solid #ccc;margin-top:8px;text-align:center"><br><button class="btn" onclick="responder10()">Responder</button><p id="prog10" style="margin-top:8px;color:var(--rosa);font-weight:700"></p></div></div>
+<div class="card"><h2>💯 Juego 10: Test 100% - Todo SI</h2><div id="testBox"><h3 id="preg10"></h3><input id="resp10" placeholder="Escribí si" style="padding:10px;border-radius:20px;border:1px solid #ccc;margin-top:8px;text-align:center"><br><button class="btn" onclick="responder10()">Responder</button><p id="prog10" style="margin-top:8px;color:var(--rosa);font-weight:700"></p></div></div>
 
-<div class="card"><h2>✍️ Juego 11: Dibujá nuestro corazón</h2><p>Dibujá un corazón con el dedo</p><canvas id="drawCanvas" width="320" height="320" style="background:white;border:1px solid #ffb3c1;margin-top:8px"></canvas><button class="btn" onclick="clearDraw()">Borrar</button><button class="btn" onclick="checkDraw()">Verificar</button><p id="msgDraw"></p></div>
+<div class="card"><h2>✍️ Juego 11: Dibujá nuestro corazón</h2><canvas id="drawCanvas" width="320" height="320" style="background:white;border:1px solid #ffb3c1;margin-top:8px"></canvas><br><button class="btn" onclick="clearDraw()">Borrar</button><button class="btn" onclick="checkDraw()">Verificar</button><p id="msgDraw" style="font-weight:700"></p></div>
 
-<div class="card"><h2>🎹 Juego 12: Piano de te amos - Voz de máquina</h2><div style="display:flex;gap:6px;justify-content:center;margin-top:10px"><button class="btn" onclick="hablar('te')" style="background:white;color:var(--rosa);border:2px solid var(--rosa)">TE</button><button class="btn" onclick="hablar('amo')" style="background:white;color:var(--rosa);border:2px solid var(--rosa)">AMO</button><button class="btn" onclick="hablar('mucho')" style="background:white;color:var(--rosa);border:2px solid var(--rosa)">MUCHO</button><button class="btn" onclick="hablar('mi vida')" style="background:white;color:var(--rosa);border:2px solid var(--rosa)">MI VIDA</button></div><p style="margin-top:10px;opacity:.6">Toca en orden: TE - AMO - MUCHO - MI VIDA</p><p id="msgPiano" style="font-weight:700;color:var(--rosa)"></p></div>
+<div class="card"><h2>🎹 Juego 12: Piano voz máquina</h2><div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:10px"><button class="btn" onclick="hablar('te')" style="background:white;color:var(--rosa);border:2px solid var(--rosa)">TE</button><button class="btn" onclick="hablar('amo')" style="background:white;color:var(--rosa);border:2px solid var(--rosa)">AMO</button><button class="btn" onclick="hablar('mucho')" style="background:white;color:var(--rosa);border:2px solid var(--rosa)">MUCHO</button><button class="btn" onclick="hablar('mi vida')" style="background:white;color:var(--rosa);border:2px solid var(--rosa)">MI VIDA</button></div><p style="margin-top:8px;opacity:.6">Orden: TE - AMO - MUCHO - MI VIDA</p><p id="msgPiano" style="font-weight:700;color:var(--rosa)"></p></div>
 
-<div class="card"><h2>📳 Juego 13: Máquina de besos - Agitá el celu</h2><div style="width:100%;height:20px;background:#eee;border-radius:10px;overflow:hidden;margin:10px 0"><div id="barraShake" style="height:100%;width:0%;background:var(--rosa);transition:.2s"></div></div><p id="percShake">0% - Agitá el celular muy fuerte!</p><button class="btn" onclick="activarShake()">Activar sensor</button></div>
+<div class="card"><h2>📳 Juego 13: Máquina de besos</h2><div style="width:100%;height:22px;background:#eee;border-radius:10px;overflow:hidden;margin:10px 0"><div id="barraShake" style="height:100%;width:0%;background:var(--rosa);transition:.2s"></div></div><p id="percShake">0% - Agitá el celu o clickeá la barra 20 veces en PC!</p><button class="btn" onclick="activarShake()">Activar</button></div>
 
-<div class="card"><h2>❓ Juego 14: ¿Cuánto me conocés? - Todo SI</h2><div id="box14"><h3 id="preg14"></h3><div id="ops14" style="margin-top:10px"></div><p id="msg14" style="margin-top:8px;font-weight:700"></p></div></div>
+<div class="card"><h2>❓ Juego 14: ¿Cuánto me conocés? - Todo SI</h2><h3 id="preg14"></h3><div id="ops14" style="margin-top:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"></div><p id="msg14" style="margin-top:8px;font-weight:700"></p></div>
 
-<div class="card"><h2>🚰 Juego 15: Tubería del amor</h2><p>Conectá tu corazón con el mío girando las tuberías</p><div id="tuberiaBoard" style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:300px;margin:10px auto"></div><button class="btn" onclick="initTuberia()">Reiniciar</button><p id="msgTub"></p></div>
+<div class="card"><h2>🚰 Juego 15: Tubería del amor</h2><div id="tuberiaBoard" style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:300px;margin:10px auto"></div><button class="btn" onclick="initTuberia()">Reiniciar</button><p id="msgTub"></p></div>
 
-<div class="card"><h2>🔐 Juego 16: Caja fuerte - Clave 23/05/01</h2><p>La clave es nuestra fecha: 230501</p><input id="codeInput" placeholder="6 dígitos" maxlength="6" style="padding:12px;border-radius:20px;border:2px solid var(--rosa);text-align:center;font-size:18px;letter-spacing:4px;margin-top:8px"><br><button class="btn" onclick="abrirCaja()">Abrir caja</button><div id="cajaContent" style="display:none;margin-top:15px;background:#111;color:white;padding:15px;border-radius:12px">💍 ADENTRO HAY UN VIDEO TUYO + TE AMO PARA SIEMPRE<br><br><iframe width="100%" height="180" src="https://www.youtube.com/embed/3AtDnEC4zak" frameborder="0" allowfullscreen style="border-radius:10px"></iframe></div></div>
+<div class="card"><h2>🔐 Juego 16: Caja fuerte 23/05/01</h2><p>Clave: 230501</p><input id="codeInput" placeholder="230501" maxlength="6" style="padding:12px;border-radius:20px;border:2px solid var(--rosa);text-align:center;font-size:18px;letter-spacing:4px;margin-top:8px"><br><button class="btn" onclick="abrirCaja()">Abrir</button><div id="cajaContent" style="display:none;margin-top:15px;background:#111;color:white;padding:15px;border-radius:12px">💍 SOS MI MUNDO ENTERO - 23/05/01<br><br><iframe width="100%" height="180" src="https://www.youtube.com/embed/3AtDnEC4zak" frameborder="0" allowfullscreen style="border-radius:10px"></iframe></div></div>
 
-<div class="card"><h2>🎯 Juego 17: Pinball del amor</h2><canvas id="pinball" width="320" height="450" style="background:#0a0a0a;margin-top:8px"></canvas><button class="btn" onclick="initPinball()">Lanzar bola</button><p id="scorePin"></p></div>
+<div class="card"><h2>🎯 Juego 17: Pinball del amor - PC y celu</h2><p>PC: mové mouse o flechas ← → | Celu: deslizá dedo</p><canvas id="pinball" width="320" height="450" style="background:#0a0a0a;margin-top:8px"></canvas><br><button class="btn" onclick="initPinball()">Lanzar bola</button><p id="scorePin" style="font-weight:700"></p></div>
 
-<div class="card"><h2>🔦 Mensaje linterna + Rasca final</h2><div style="position:relative;width:100%;height:200px;background:#000;border-radius:16px;overflow:hidden;margin:10px 0" id="linWrap"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;padding:15px;text-align:center">SI LLEGASTE HASTA ACÁ SOS EL AMOR DE MI VIDA - 23/05/01 ♡</div><canvas id="linCanvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas></div><div style="width:100%;max-width:360px;height:120px;background:#222;border-radius:12px;position:relative;margin:10px auto;overflow:hidden"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;text-align:center;padding:10px">TE AMO MÁS QUE AYER PERO MENOS QUE MAÑANA - 23/05/01</div><canvas id="rascaCanvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas></div><button class="btn" style="padding:16px 38px;font-size:18px" onclick="si()">SÍ, QUIERO QUEDARME EN TU UNIVERSO ♡</button></div>
-
+<div class="card"><h2>✨ Final - 23/05/01</h2><div style="width:100%;max-width:360px;height:120px;background:#222;border-radius:12px;position:relative;margin:10px auto;overflow:hidden"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;text-align:center;padding:10px">TE AMO MUCHO SOS MI MUNDO ENTERO - 23/05/01</div><canvas id="rascaCanvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas></div><button class="btn" style="padding:16px 38px;font-size:18px" onclick="siFinal()">SÍ, SOY TU MUNDO ENTERO ♡</button></div>
 </div>
 
 <script>
-const inicio=new Date('2023-05-23T00:00:00');const miNumero='5491141643081';
+const miNumero='5491141643081';
 let txt="Tengo algo para vos ♡";let ti=0;function escribir(){let c=document.getElementById('typewriter');if(ti<txt.length){c.innerText=txt.substring(0,ti+1);ti++;setTimeout(escribir,90)}}escribir();
 window.addEventListener('scroll',()=>{let h=document.documentElement.scrollHeight-innerHeight;document.getElementById('progress').style.width=window.scrollY/h*100+'%'});
 function abrir(){confetti({particleCount:150,spread:80,origin:{y:.6}});document.getElementById('musica').play().catch(()=>{});document.getElementById('sobre').classList.add('abierto');setTimeout(()=>{document.getElementById('sobre-container').style.opacity='0';setTimeout(()=>{document.getElementById('sobre-container').style.display='none';document.getElementById('contenido').style.display='block';initLab();initFlappy();initCuerda();initTuberia();initPinball();initLinterna();initRasca();initTest10();initTest14();initAhorcado()},800)},600)}
-function lluvia(){for(let i=0;i<30;i++){setTimeout(()=>{let b=document.createElement('div');b.className='kiss';b.innerText=['💖','😘','💋'][Math.floor(Math.random()*3)];b.style.left=Math.random()*100+'vw';document.body.appendChild(b);setTimeout(()=>b.remove(),3000)},i*70)}}
-function si(){lluvia();confetti({particleCount:200});setTimeout(()=>window.open(`https://wa.me/${miNumero}?text=${encodeURIComponent('SÍ, quiero quedarme en tu universo para siempre ♡ 23/05/01')}`,'_blank'),600)}
-document.addEventListener('mousemove',e=>{if(Math.random()>.85){let h=document.createElement('div');h.className='heart-cursor';h.innerText='💖';h.style.left=e.clientX+'px';h.style.top=e.clientY+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),600)}})
+function lluvia(){for(let i=0;i<28;i++){setTimeout(()=>{let b=document.createElement('div');b.className='kiss';b.innerText=['💖','😘','💋'][Math.floor(Math.random()*3)];b.style.left=Math.random()*100+'vw';document.body.appendChild(b);setTimeout(()=>b.remove(),3000)},i*70)}}
+function pararEmojis3s(){setTimeout(()=>{document.querySelectorAll('.kiss').forEach(e=>e.remove())},3000)}
+function si(){lluvia();pararEmojis3s();confetti({particleCount:180});setTimeout(()=>window.open(`https://wa.me/${miNumero}?text=${encodeURIComponent('SÍ, quiero quedarme en tu universo para siempre ♡ 23/05/01')}`,'_blank'),700)}
+function siFinal(){lluvia();pararEmojis3s();confetti({particleCount:200});setTimeout(()=>window.open(`https://wa.me/${miNumero}?text=${encodeURIComponent('te amo mucho sos mi mundo entero ♡ 23/05/01')}`,'_blank'),700)}
+document.addEventListener('mousemove',e=>{if(Math.random()>.88){let h=document.createElement('div');h.className='heart-cursor';h.innerText='💖';h.style.left=e.clientX+'px';h.style.top=e.clientY+'px';document.body.appendChild(h);setTimeout(()=>h.remove(),600)}})
 
 // ATRAPA
-function jAtrapa(){let area=document.getElementById('areaAtrapa');area.style.display='block';let pts=0;area.innerHTML='<div id="scoreA" style="position:absolute;top:6px;left:10px;font-weight:700">0/10</div>';let inter=setInterval(()=>{let c=document.createElement('div');c.style.position='absolute';c.style.fontSize='26px';c.innerText='💖';c.style.left=Math.random()*(area.clientWidth-30)+'px';c.style.top=Math.random()*(area.clientHeight-30)+'px';c.onclick=()=>{pts++;document.getElementById('scoreA').innerText=pts+'/10';c.remove();if(pts>=10){clearInterval(inter);area.innerHTML='<h2 style="margin-top:120px">Ganaste!</h2>';lluvia()}};area.appendChild(c);setTimeout(()=>c.remove(),1000)},500);setTimeout(()=>clearInterval(inter),10000)}
+function jAtrapa(){let area=document.getElementById('areaAtrapa');area.style.display='block';let pts=0;area.innerHTML='<div id="scoreA" style="position:absolute;top:6px;left:10px;font-weight:700">0/10</div>';let inter=setInterval(()=>{let c=document.createElement('div');c.style.position='absolute';c.style.fontSize='26px';c.innerText='💖';c.style.left=Math.random()*(area.clientWidth-30)+'px';c.style.top=Math.random()*(area.clientHeight-30)+'px';c.style.cursor='pointer';c.onclick=()=>{pts++;document.getElementById('scoreA').innerText=pts+'/10';c.remove();if(pts>=10){clearInterval(inter);area.innerHTML='<h2 style="margin-top:120px;color:#ff4d6d">Ganaste! 💖</h2>';lluvia();pararEmojis3s();confetti()}};area.appendChild(c);setTimeout(()=>c.remove(),1100)},550);setTimeout(()=>clearInterval(inter),10000)}
 
-// NO FUGA
+// JUEGO 1 - MENSAJE PERSONALIZADO
 let siS=1;function moverNo(){let btn=document.getElementById('btnNo');let w=document.getElementById('wrapNo');btn.style.left=Math.random()*(w.clientWidth-60)+'px';btn.style.top=Math.random()*(w.clientHeight-35)+'px';siS+=0.12;document.getElementById('btnSi1').style.transform=`translate(-50%,-50%) scale(${siS})`}
+function ganarNo(){confetti();lluvia();pararEmojis3s();document.getElementById('wrapNo').innerHTML='<h2 style="margin-top:45px;color:#ff4d6d;font-size:1.4rem">te amo mucho sos mi mundo entero 💖🌍</h2>';setTimeout(siFinal,1200)}
 
-// MEMORY
-function initMemory(){let b=document.getElementById('boardMemory');b.style.display='grid';b.innerHTML='';let fotos=['💖','🌹','😍','💖','🌹','😍'].sort(()=>Math.random()-.5);let volt=[];fotos.forEach(f=>{let d=document.createElement('div');d.style.height='80px';d.style.background='#ff8fa3';d.style.borderRadius='10px';d.style.display='flex';d.style.alignItems='center';d.style.justifyContent='center';d.dataset.v=f;d.innerText='?';d.onclick=()=>{if(volt.length>=2||d.dataset.ok)return;d.innerText=f;volt.push(d);if(volt.length==2){if(volt[0].dataset.v==volt[1].dataset.v){volt.forEach(x=>x.dataset.ok=1);volt=[]}else setTimeout(()=>{volt.forEach(x=>x.innerText='?');volt=[]},600)}};b.appendChild(d)})}
+// JUEGO 2 - MENSAJE PERSONALIZADO
+function initMemory(){let b=document.getElementById('boardMemory');b.style.display='grid';b.innerHTML='';document.getElementById('msgMemory').innerText='';let fotos=['💖','🌹','😍','💖','🌹','😍'].sort(()=>Math.random()-.5);let volt=[],found=0;fotos.forEach(f=>{let d=document.createElement('div');d.style.height='80px';d.style.background='#ff8fa3';d.style.borderRadius='10px';d.style.display='flex';d.style.alignItems='center';d.style.justifyContent='center';d.dataset.v=f;d.innerText='?';d.style.cursor='pointer';d.onclick=()=>{if(volt.length>=2||d.dataset.ok)return;d.innerText=f;volt.push(d);if(volt.length==2){if(volt[0].dataset.v==volt[1].dataset.v){volt.forEach(x=>x.dataset.ok=1);found++;volt=[];if(found==3){document.getElementById('msgMemory').innerText='hermosa memoria mi vida ♡';lluvia();pararEmojis3s();confetti()}}else setTimeout(()=>{volt.forEach(x=>x.innerText='?');volt=[]},600)}};b.appendChild(d)})}
 
-// PUZZLE
-function initPuzzle(){let board=document.getElementById('boardPuzzle');board.style.display='grid';board.innerHTML='';let arr=[...Array(9).keys()].sort(()=>Math.random()-.5);arr.forEach(n=>{let d=document.createElement('div');d.style.width='100%';d.style.height='98px';d.style.backgroundImage="url('https://picsum.photos/300/300?random=7')";d.style.backgroundSize='300px 300px';d.style.backgroundPosition=`${-(n%3)*100}px ${-Math.floor(n/3)*100}px`;d.dataset.c=n;d.draggable=true;d.addEventListener('dragstart',e=>e.dataTransfer.setData('t',n));d.addEventListener('dragover',e=>e.preventDefault());d.addEventListener('drop',e=>{let from=e.dataTransfer.getData('t');let to=d.dataset.c;let all=[...board.children];let a=all.find(x=>x.dataset.c==from);let b=d;let tmp=a.style.backgroundPosition;a.style.backgroundPosition=b.style.backgroundPosition;b.style.backgroundPosition=tmp;let tmpC=a.dataset.c;a.dataset.c=b.dataset.c;b.dataset.c=tmpC});board.appendChild(d)})}
+// JUEGO 3 y 4
+function initPuzzle(){let board=document.getElementById('boardPuzzle');board.style.display='grid';board.innerHTML='';let arr=[...Array(9).keys()].sort(()=>Math.random()-.5);arr.forEach(n=>{let d=document.createElement('div');d.style.height='98px';d.style.backgroundImage="url('https://picsum.photos/300/300?random=7')";d.style.backgroundSize='300px 300px';d.style.backgroundPosition=`${-(n%3)*100}px ${-Math.floor(n/3)*100}px`;d.dataset.c=n;d.draggable=true;d.addEventListener('dragstart',e=>e.dataTransfer.setData('t',n));d.addEventListener('dragover',e=>e.preventDefault());d.addEventListener('drop',e=>{let from=e.dataTransfer.getData('t');let to=d.dataset.c;let all=[...board.children];let a=all.find(x=>x.dataset.c==from);let b=d;let tmp=a.style.backgroundPosition;a.style.backgroundPosition=b.style.backgroundPosition;b.style.backgroundPosition=tmp;let tmpC=a.dataset.c;a.dataset.c=b.dataset.c;b.dataset.c=tmpC});board.appendChild(d)})}
+function initAhorcado(){let frase="TE AMO";let letras=Array(frase.length).fill(false);frase.split('').forEach((c,i)=>{if(c==' ')letras[i]=true});let intentos=5;function render(){document.getElementById('palabraA').innerText=frase.split('').map((c,i)=>letras[i]?' '+c+' ':' _ ').join('')}render();let cont=document.getElementById('letrasA');cont.innerHTML='';'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('').forEach(l=>{let b=document.createElement('button');b.innerText=l;b.style.width='32px';b.style.height='32px';b.style.border='1px solid #ffb3c1';b.style.borderRadius='8px';b.style.background='white';b.onclick=()=>{b.disabled=true;if(frase.includes(l)){frase.split('').forEach((c,i)=>{if(c==l)letras[i]=true})}else intentos--;render();if(letras.every(v=>v))document.getElementById('msgA').innerText='Ganaste! Era TE AMO ♡';lluvia();pararEmojis3s()};cont.appendChild(b)})}
 
-// AHORCADO
-function initAhorcado(){let frase="TE AMO";let letras=Array(frase.length).fill(false);frase.split('').forEach((c,i)=>{if(c==' ')letras[i]=true});let intentos=5;function render(){document.getElementById('palabraA').innerText=frase.split('').map((c,i)=>letras[i]?' '+c+' ':' _ ').join('');}render();let cont=document.getElementById('letrasA');cont.innerHTML='';'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('').forEach(l=>{let b=document.createElement('button');b.innerText=l;b.style.width='32px';b.style.height='32px';b.style.border='1px solid #ffb3c1';b.style.borderRadius='8px';b.style.background='white';b.onclick=()=>{b.disabled=true;if(frase.includes(l)){frase.split('').forEach((c,i)=>{if(c==l)letras[i]=true})}else intentos--;render();if(letras.every(v=>v))document.getElementById('msgA').innerText='Ganaste! Era TE AMO ♡'};cont.appendChild(b)})}
+// JUEGO 5
+function girar(){let r=document.getElementById('ruleta');let rot=1080+Math.random()*720;r.style.transform=`rotate(${rot}deg)`;setTimeout(()=>{let premios=['Beso 😘','Abrazo 🫂','Te amo 💖','Cita 🍝','Beso 💋'];document.getElementById('resRuleta').innerText='Te tocó: '+premios[Math.floor(Math.random()*premios.length)];lluvia();pararEmojis3s()},3000)}
 
-// RULETA
-function girar(){let r=document.getElementById('ruleta');let rot=1080+Math.random()*720;r.style.transform=`rotate(${rot}deg)`;setTimeout(()=>{let premios=['Beso 😘','Abrazo 🫂','Te amo 💖','Cita 🍝','Beso 💋'];document.getElementById('resRuleta').innerText='Te tocó: '+premios[Math.floor(Math.random()*premios.length)];lluvia()},3000)}
+// JUEGO 6 LABERINTO
+function initLab(){let c=document.getElementById('labCanvas');let ctx=c.getContext('2d');ctx.fillStyle='#111';ctx.fillRect(0,0,320,320);ctx.fillStyle='#333';for(let i=0;i<7;i++){ctx.fillRect(Math.random()*260+10,Math.random()*260+10,70,12)}ctx.fillStyle='#ff4d6d';ctx.fillRect(280,280,30,30);ctx.fillStyle='white';ctx.fillRect(10,10,22,22);document.getElementById('msgLab').innerText='';let check=(x,y)=>{if(x>280&&y>280){document.getElementById('msgLab').innerText='¡Llegaste a mi corazón! 💖';lluvia();pararEmojis3s();confetti()}};c.onmousemove=(e)=>{let rect=c.getBoundingClientRect();check(e.clientX-rect.left,e.clientY-rect.top)};c.ontouchmove=(e)=>{let rect=c.getBoundingClientRect();check(e.touches[0].clientX-rect.left,e.touches[0].clientY-rect.top);e.preventDefault()},{passive:false}}
 
-// 6 LABERINTO
-function initLab(){let c=document.getElementById('labCanvas');let ctx=c.getContext('2d');ctx.fillStyle='#111';ctx.fillRect(0,0,320,320);ctx.fillStyle='#333';for(let i=0;i<8;i++){ctx.fillRect(Math.random()*280,Math.random()*280,60,10)}ctx.fillStyle='#ff4d6d';ctx.fillRect(280,280,30,30);ctx.fillStyle='white';ctx.fillRect(10,10,20,20);let drawing=false;c.ontouchmove=(e)=>{let rect=c.getBoundingClientRect();let x=e.touches[0].clientX-rect.left,y=e.touches[0].clientY-rect.top;if(x>280&&y>280){document.getElementById('msgLab').innerText='¡Llegaste a mi corazón! 💖';lluvia();confetti()}};c.onmousemove=(e)=>{let rect=c.getBoundingClientRect();let x=e.clientX-rect.left,y=e.clientY-rect.top;if(x>280&&y>280){document.getElementById('msgLab').innerText='¡Llegaste a mi corazón! 💖';lluvia()}}}
+// JUEGO 7 FLAPPY ARREGLADO - NO CAE RAPIDO
+let flappyLoopId;
+function initFlappy(){
+  let c=document.getElementById('flappy');let ctx=c.getContext('2d');
+  let y=200,vy=0,score=0,tubes=[],alive=true;
+  if(flappyLoopId) cancelAnimationFrame(flappyLoopId);
+  y=200;vy=0;tubes=[];score=0;alive=true;
+  document.getElementById('scoreFlappy').innerText='Score: 0';
 
-// 7 FLAPPY
-let flappyGame;function initFlappy(){let c=document.getElementById('flappy');let ctx=c.getContext('2d');let y=200,vy=0,score=0,tubes=[];let alive=true;function loop(){if(!alive)return;ctx.fillStyle='#c8e7ff';ctx.fillRect(0,0,320,400);vy+=0.4;y+=vy;if(y>380||y<0){alive=false;document.getElementById('scoreFlappy').innerText='Perdiste! Score: '+score;return}ctx.fillStyle='#ff4d6d';ctx.font='30px serif';ctx.fillText('😍',140,y);if(Math.random()<.03){tubes.push({x:320,gap:Math.random()*150+100})}tubes.forEach(t=>{t.x-=3;ctx.fillStyle='#ff8fa3';ctx.fillRect(t.x,0,30,t.gap);ctx.fillRect(t.x,t.gap+100,30,400);if(t.x<150&&t.x>110){if(y<t.gap||y>t.gap+100){alive=false;document.getElementById('scoreFlappy').innerText='Perdiste! Score: '+score}}if(t.x==110)score++});document.getElementById('scoreFlappy').innerText='Score: '+score;requestAnimationFrame(loop)}c.onclick=()=>{vy=-7};loop()}
+  function loop(){
+    if(!alive) return;
+    ctx.fillStyle='#c8e7ff';ctx.fillRect(0,0,320,400);
+    vy+=0.22; // GRAVEDAD BAJA - antes 0.4
+    y+=vy;
+    if(y>385||y<-10){alive=false;document.getElementById('scoreFlappy').innerText='Perdiste! Score: '+score;return}
+    ctx.font='30px serif';ctx.fillText('😍',140,y);
+    if(Math.random()<0.018){tubes.push({x:320,gap:Math.random()*110+70})}
+    tubes.forEach((t,i)=>{
+      t.x-=1.8; // más lento
+      ctx.fillStyle='#ff8fa3';ctx.fillRect(t.x,0,30,t.gap);ctx.fillRect(t.x,t.gap+90,30,400);
+      if(t.x<168&&t.x>110){if(y<t.gap||y>t.gap+70){alive=false;document.getElementById('scoreFlappy').innerText='Perdiste! Score: '+score;return}}
+      if(t.x==110) score++;
+    });
+    document.getElementById('scoreFlappy').innerText='Score: '+score;
+    flappyLoopId=requestAnimationFrame(loop);
+  }
+  function saltar(){vy=-5.5} // salto suave
+  c.onclick=saltar;
+  c.ontouchstart=(e)=>{saltar();e.preventDefault()};
+  window.addEventListener('keydown',function handler(e){if(e.code=='Space'){saltar();e.preventDefault()}});
+  loop();
+}
 
-// 8 CUERDA
-function initCuerda(){let c=document.getElementById('cuerdaCanvas');let ctx=c.getContext('2d');let cut=false;let ballY=50,ballX=160,vy=0;function draw(){ctx.clearRect(0,0,320,400);ctx.fillStyle='#fff0f3';ctx.fillRect(0,0,320,400);if(!cut){ctx.strokeStyle='#333';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(160,0);ctx.lineTo(ballX,ballY);ctx.stroke()}ctx.font='40px serif';ctx.fillText('💖',ballX-20,ballY);ctx.fillStyle='#333';ctx.fillRect(120,350,80,30);ctx.fillStyle='white';ctx.fillText('YO',135,370);if(cut){vy+=0.5;ballY+=vy;if(ballY>330&&ballX>120&&ballX<200){ctx.fillStyle='#ff4d6d';ctx.font='20px Poppins';ctx.fillText('¡Caí en vos! 💖',90,200);lluvia();confetti()}}requestAnimationFrame(draw)}draw();c.addEventListener('touchmove',e=>{let r=c.getBoundingClientRect();let x=e.touches[0].clientX-r.left,y=e.touches[0].clientY-r.top;if(Math.abs(x-160)<20&&y<100)cut=true;e.preventDefault()},{passive:false});c.addEventListener('mousemove',e=>{if(e.buttons==1){let r=c.getBoundingClientRect();let x=e.clientX-r.left,y=e.clientY-r.top;if(Math.abs(x-160)<20)cut=true}})}
+// JUEGO 8 SOGA LARGA + PARA EMOJIS 3s
+function initCuerda(){
+  let c=document.getElementById('cuerdaCanvas');let ctx=c.getContext('2d');
+  let cut=false,ballY=140,ballX=160,vy=0,finished=false;
+  function draw(){
+    ctx.clearRect(0,0,320,400);ctx.fillStyle='#fff0f3';ctx.fillRect(0,0,320,400);
+    if(!cut){
+      ctx.strokeStyle='#555';ctx.lineWidth=2.5;ctx.setLineDash([7,5]);
+      ctx.beginPath();ctx.moveTo(160,0);ctx.lineTo(ballX,ballY-25);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle='#333';ctx.font='11px Poppins';ctx.fillText('✂️ CORTÁ LA SOGA ACÁ',95,30);
+      ctx.beginPath();ctx.arc(160,60,18,0,Math.PI*2);ctx.strokeStyle='#ff4d6d';ctx.stroke();
+    }
+    ctx.font='40px serif';ctx.fillText('💖',ballX-20,ballY);
+    ctx.fillStyle='#333';ctx.fillRect(110,350,100,36);ctx.fillStyle='white';ctx.font='bold 13px Poppins';ctx.fillText('YO ♡',135,372);
+    if(cut&&!finished){
+      vy+=0.32;ballY+=vy;
+      if(ballY>330&&ballX>110&&ballX<210){
+        finished=true;
+        ctx.fillStyle='#ff4d6d';ctx.font='bold 16px Poppins';ctx.fillText('¡Caí en vos! 💖',85,200);
+        lluvia();confetti();pararEmojis3s();
+      }
+      if(ballY>500) finished=true;
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+  let cortar=()=>{if(!cut)cut=true};
+  c.addEventListener('mousedown',e=>{let r=c.getBoundingClientRect();let x=e.clientX-r.left,y=e.clientY-r.top;if(Math.abs(x-160)<35&&y<120) cortar()});
+  c.addEventListener('touchstart',e=>{let r=c.getBoundingClientRect();let x=e.touches[0].clientX-r.left,y=e.touches[0].clientY-r.top;if(Math.abs(x-160)<35&&y<140) cortar();e.preventDefault()},{passive:false});
+}
 
-// 9 SOLO LO NUESTRO
-function initNuestro(){let area=document.getElementById('areaNuestro');let score=0;let words=['besos 💖','abrazos 🫂','si ♡','viajes ✈️','celos 💔','no ❌','peleas 😡','te amo 💋'];let inter=setInterval(()=>{let w=document.createElement('div');w.style.position='absolute';w.style.left=Math.random()*(area.clientWidth-60)+'px';w.style.top='-20px';w.innerText=words[Math.floor(Math.random()*words.length)];w.style.background='white';w.style.padding='4px 8px';w.style.borderRadius='10px';w.style.fontSize='13px';w.style.cursor='pointer';let good=w.innerText.includes('besos')||w.innerText.includes('abrazos')||w.innerText.includes('si')||w.innerText.includes('te amo');w.onclick=()=>{if(good){score+=10}else score-=5;document.getElementById('scoreNuestro').innerText='Puntos: '+score;w.remove()};area.appendChild(w);let t=0;let fall=setInterval(()=>{t+=3;w.style.top=t+'px';if(t>280){clearInterval(fall);w.remove()}},20)},600);setTimeout(()=>clearInterval(inter),15000)}
+// JUEGO 9 PC + CELU
+function initNuestro(){
+  let area=document.getElementById('areaNuestro');
+  area.innerHTML='<div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);font-size:32px;transition:left 0.05s" id="canasta">🧺</div>';
+  let score=0;let canastaX=50;let canasta=document.getElementById('canasta');
+  let words=['besos 💖','abrazos 🫂','si ♡','te amo 💋','viajes ✈️','celos 💔','no ❌','peleas 😡'];
+  let moveCanasta=(perc)=>{canastaX=Math.max(5,Math.min(95,perc));canasta.style.left=canastaX+'%'};
+  area.onmousemove=(e)=>{let r=area.getBoundingClientRect();moveCanasta(((e.clientX-r.left)/r.width)*100)};
+  area.addEventListener('touchmove',e=>{let r=area.getBoundingClientRect();moveCanasta(((e.touches[0].clientX-r.left)/r.width)*100);e.preventDefault()},{passive:false});
+  window.addEventListener('keydown',e=>{if(e.key=='ArrowLeft')moveCanasta(canastaX-6);if(e.key=='ArrowRight')moveCanasta(canastaX+6)});
+  document.getElementById('scoreNuestro').innerText='Puntos: 0';
+  let inter=setInterval(()=>{
+    let w=document.createElement('div');w.style.position='absolute';w.style.left=Math.random()*(area.clientWidth-70)+'px';w.style.top='-20px';
+    w.innerText=words[Math.floor(Math.random()*words.length)];w.style.background='white';w.style.padding='4px 8px';w.style.borderRadius='10px';w.style.fontSize='13px';w.style.cursor='pointer';w.style.zIndex='2';
+    let good=w.innerText.includes('besos')||w.innerText.includes('abrazos')||w.innerText.includes('si')||w.innerText.includes('te amo');
+    area.appendChild(w);
+    let t=0;let fall=setInterval(()=>{
+      t+=2.2;w.style.top=t+'px';
+      let wx=parseInt(w.style.left);let canastaPix=(canastaX/100)*area.clientWidth;
+      if(t>265&&Math.abs(wx-canastaPix)<55){if(good)score+=10;else score-=5;document.getElementById('scoreNuestro').innerText='Puntos: '+score;clearInterval(fall);w.remove()}
+      if(t>320){clearInterval(fall);w.remove()}
+    },16);
+    w.onclick=()=>{if(good)score+=10;else score-=5;document.getElementById('scoreNuestro').innerText='Puntos: '+score;clearInterval(fall);w.remove()};
+  },650);
+  setTimeout(()=>clearInterval(inter),16000);
+}
 
-// 10 TEST SI
+// JUEGO 10 y 14
 const preguntas10=["¿Me amás?","¿Querés seguir conmigo?","¿Te quedás para siempre?","¿Soy tu persona favorita?","¿Querés todo conmigo?"];let idx10=0;
 function initTest10(){idx10=0;document.getElementById('preg10').innerText=preguntas10[0];document.getElementById('prog10').innerText='1/5'}
-function responder10(){let v=document.getElementById('resp10').value.toLowerCase();if(v.trim()!=='si'&&v.trim()!=='sí'){alert('Tenés que poner SI 😏');return}idx10++;document.getElementById('resp10').value='';if(idx10<preguntas10.length){document.getElementById('preg10').innerText=preguntas10[idx10];document.getElementById('prog10').innerText=(idx10+1)+'/5'}else{document.getElementById('prog10').innerText='100% - Almas gemelas confirmadas 💖';lluvia();confetti()}}
-
-// 11 DIBUJA
-let drawing11=false;function initDraw11(){let c=document.getElementById('drawCanvas');let ctx=c.getContext('2d');ctx.lineWidth=4;ctx.strokeStyle='#ff4d6d';c.addEventListener('mousedown',()=>drawing11=true);c.addEventListener('mouseup',()=>drawing11=false);c.addEventListener('mousemove',e=>{if(!drawing11)return;let r=c.getBoundingClientRect();ctx.lineTo(e.clientX-r.left,e.clientY-r.top);ctx.stroke()});c.addEventListener('touchstart',()=>drawing11=true);c.addEventListener('touchend',()=>drawing11=false);c.addEventListener('touchmove',e=>{let r=c.getBoundingClientRect();ctx.lineTo(e.touches[0].clientX-r.left,e.touches[0].clientY-r.top);ctx.stroke();e.preventDefault()},{passive:false})}initDraw11();function clearDraw(){let c=document.getElementById('drawCanvas');c.getContext('2d').clearRect(0,0,320,320);document.getElementById('msgDraw').innerText=''}function checkDraw(){document.getElementById('msgDraw').innerText='¡Tu corazón encaja perfecto con el mío! 💞';lluvia()}
-
-// 12 PIANO VOZ MAQUINA
-let seq=[];function hablar(texto){let ut=new SpeechSynthesisUtterance(texto);ut.lang='es-ES';ut.rate=0.9;speechSynthesis.speak(ut);seq.push(texto);if(seq.join(' ')=='te amo mucho mi vida'){document.getElementById('msgPiano').innerText='¡Tocaste la melodía perfecta! 🎹💖';lluvia();confetti();seq=[]}if(seq.length>4)seq=[]}
-
-// 13 SHAKE
-function activarShake(){if(window.DeviceMotionEvent){window.addEventListener('devicemotion',e=>{let a=e.accelerationIncludingGravity;let s=Math.abs(a.x)+Math.abs(a.y);let perc=Math.min(100,parseInt(document.getElementById('barraShake').style.width||0)+s*0.5);document.getElementById('barraShake').style.width=perc+'%';document.getElementById('percShake').innerText=perc.toFixed(0)+'% - Seguí agitando!';if(perc>=100){document.getElementById('percShake').innerText='¡EXPLOTASTE DE BESOS! 😘💋💖';lluvia();confetti()}});alert('Ahora agitá el celular muy fuerte!')}else alert('Tu celu no tiene sensor, tocá la barra 20 veces');document.getElementById('barraShake').onclick=()=>{let w=parseInt(document.getElementById('barraShake').style.width||0)+10;document.getElementById('barraShake').style.width=w+'%';if(w>=100){document.getElementById('percShake').innerText='¡EXPLOTASTE DE BESOS!';lluvia()}}}
-
-// 14 CUANTO ME CONOCES TODO SI
+function responder10(){let v=document.getElementById('resp10').value.toLowerCase().trim();if(v!=='si'&&v!=='sí'&&v!=='obvio'&&v!=='obvio que si'){alert('Tenés que poner SI 😏');return}idx10++;document.getElementById('resp10').value='';if(idx10<preguntas10.length){document.getElementById('preg10').innerText=preguntas10[idx10];document.getElementById('prog10').innerText=(idx10+1)+'/5'}else{document.getElementById('prog10').innerText='100% - Almas gemelas confirmadas 💖';lluvia();pararEmojis3s();confetti()}}
 const preguntas14=["¿Me amás más que a nadie?","¿Soy el amor de tu vida?","¿Querés casarte conmigo algún día?","¿Me perdonás todo?","¿Te quedás aunque me ponga pesado?"];let idx14=0;
 function initTest14(){idx14=0;render14()}
-function render14(){document.getElementById('preg14').innerText=preguntas14[idx14];let ops=document.getElementById('ops14');ops.innerHTML='';['si','obvio que si','si mi amor'].forEach(o=>{let b=document.createElement('button');b.className='btn';b.innerText=o;b.style.background='white';b.style.color='var(--rosa)';b.style.border='2px solid var(--rosa)';b.onclick=()=>{idx14++;if(idx14<preguntas14.length)render14();else{document.getElementById('msg14').innerText='¡Me conocés 100%! Sos mi persona 💖';lluvia();confetti()}};ops.appendChild(b)})}
+function render14(){document.getElementById('preg14').innerText=preguntas14[idx14];let ops=document.getElementById('ops14');ops.innerHTML='';['si','obvio que si','si mi amor'].forEach(o=>{let b=document.createElement('button');b.className='btn';b.innerText=o;b.style.background='white';b.style.color='var(--rosa)';b.style.border='2px solid var(--rosa)';b.onclick=()=>{idx14++;if(idx14<preguntas14.length)render14();else{document.getElementById('msg14').innerText='¡Me conocés 100%! Sos mi persona 💖';lluvia();pararEmojis3s();confetti()}};ops.appendChild(b)})}
 
-// 15 TUBERIA
-function initTuberia(){let board=document.getElementById('tuberiaBoard');board.innerHTML='';for(let i=0;i<9;i++){let d=document.createElement('div');d.style.height='90px';d.style.background=i==0?'#ff4d6d':i==8?'#ff8fa3':'#eee';d.style.borderRadius='10px';d.style.display='flex';d.style.alignItems='center';d.style.justifyContent='center';d.style.fontSize='28px';d.innerText=i==0?'💖':i==8?'💖':['─','│','┌','┐'][Math.floor(Math.random()*4)];d.onclick=()=>{let rot=d.dataset.rot||0;rot=(parseInt(rot)+90)%360;d.style.transform=`rotate(${rot}deg)`;d.dataset.rot=rot};board.appendChild(d)}}
+// JUEGO 11,12,13,15
+let drawing11=false;let cDraw=document.getElementById('drawCanvas');let ctxDraw=cDraw.getContext('2d');ctxDraw.lineWidth=4;ctxDraw.strokeStyle='#ff4d6d';cDraw.addEventListener('mousedown',()=>drawing11=true);cDraw.addEventListener('mouseup',()=>{drawing11=false;ctxDraw.beginPath()});cDraw.addEventListener('mousemove',e=>{if(!drawing11)return;let r=cDraw.getBoundingClientRect();ctxDraw.lineTo(e.clientX-r.left,e.clientY-r.top);ctxDraw.stroke()});cDraw.addEventListener('touchstart',()=>drawing11=true);cDraw.addEventListener('touchend',()=>{drawing11=false;ctxDraw.beginPath()});cDraw.addEventListener('touchmove',e=>{let r=cDraw.getBoundingClientRect();ctxDraw.lineTo(e.touches[0].clientX-r.left,e.touches[0].clientY-r.top);ctxDraw.stroke();e.preventDefault()},{passive:false});
+function clearDraw(){ctxDraw.clearRect(0,0,320,320);document.getElementById('msgDraw').innerText=''}function checkDraw(){document.getElementById('msgDraw').innerText='¡Tu corazón encaja perfecto con el mío! 💞';lluvia();pararEmojis3s()}
+let seq=[];function hablar(t){let u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=0.9;speechSynthesis.speak(u);seq.push(t);if(seq.join(' ')=='te amo mucho mi vida'){document.getElementById('msgPiano').innerText='¡Tocaste la melodía perfecta! 🎹💖';lluvia();pararEmojis3s();confetti();seq=[]}if(seq.length>4)seq=[]}
+function activarShake(){let bar=document.getElementById('barraShake');let perc=parseInt(bar.style.width||0);function add(n){perc=Math.min(100,perc+n);bar.style.width=perc+'%';document.getElementById('percShake').innerText=perc+'%';if(perc>=100){document.getElementById('percShake').innerText='¡EXPLOTASTE DE BESOS! 😘';lluvia();pararEmojis3s();confetti()}}if(window.DeviceMotionEvent){window.addEventListener('devicemotion',e=>{let a=e.accelerationIncludingGravity;if(!a)return;let s=Math.abs(a.x)+Math.abs(a.y);if(s>15)add(s*0.15)})}bar.onclick=()=>add(10);document.getElementById('percShake').onclick=()=>add(12);alert('En celu: agitá fuerte. En PC: clickeá la barra o el texto 15 veces')}
+function initTuberia(){let board=document.getElementById('tuberiaBoard');board.innerHTML='';for(let i=0;i<9;i++){let d=document.createElement('div');d.style.height='90px';d.style.background=i==0?'#ff4d6d':i==8?'#ff8fa3':'#eee';d.style.borderRadius='10px';d.style.display='flex';d.style.alignItems='center';d.style.justifyContent='center';d.style.fontSize='28px';d.style.cursor='pointer';d.innerText=i==0?'💖':i==8?'💖':['─','│','┌','┐'][Math.floor(Math.random()*4)];d.onclick=()=>{let r=d.dataset.rot||0;r=(parseInt(r)+90)%360;d.style.transform=`rotate(${r}deg)`;d.dataset.rot=r};board.appendChild(d)}}
+function abrirCaja(){let v=document.getElementById('codeInput').value;if(v=='230501'){document.getElementById('cajaContent').style.display='block';lluvia();pararEmojis3s();confetti()}else{alert('Clave incorrecta, es 230501 (23/05/01)');if(navigator.vibrate)navigator.vibrate(100)}}
 
-// 16 CAJA FUERTE 23/05/01 = 230501
-function abrirCaja(){let v=document.getElementById('codeInput').value;if(v=='230501'||v=='23/05/01'||v=='230501'){document.getElementById('cajaContent').style.display='block';lluvia();confetti();if(navigator.vibrate)navigator.vibrate([100,50,100])}else{alert('Clave incorrecta, pista: 23/05/01 sin barras');if(navigator.vibrate)navigator.vibrate(100)}}
+// JUEGO 17 PINBALL - ARREGLADO PC
+let pinballId;
+function initPinball(){
+  let c=document.getElementById('pinball');let ctx=c.getContext('2d');
+  let x=160,y=400,vx=(Math.random()-0.5)*5,vy=-6,score=0,alive=true,paddleX=110;
+  if(pinballId) cancelAnimationFrame(pinballId);
+  score=0;alive=true;x=160;y=400;vx=(Math.random()-0.5)*5;vy=-6;
 
-// 17 PINBALL
-function initPinball(){let c=document.getElementById('pinball');let ctx=c.getContext('2d');let x=160,y=400,vx=(Math.random()-0.5)*8,vy=-8,score=0;function loop(){ctx.fillStyle='#0a0a0a';ctx.fillRect(0,0,320,450);ctx.fillStyle='#ff4d6d';ctx.beginPath();ctx.arc(x,y,10,0,Math.PI*2);ctx.fill();x+=vx;y+=vy;vy+=0.2;if(x<10||x>310)vx*=-1;if(y<10)vy*=-1;if(y>430){document.getElementById('scorePin').innerText='Game Over - Score: '+score;return}ctx.fillStyle='#ffb3c1';ctx.fillRect(50,80,60,20);ctx.fillRect(190,120,60,20);ctx.fillStyle='white';ctx.fillText('BESO',60,93);ctx.fillText('TE AMO',195,133);if(x>50&&x<110&&y>70&&y<100){vy*=-1;score+=10}if(x>190&&x<250&&y>110&&y<140){vy*=-1;score+=20}document.getElementById('scorePin').innerText='Score: '+score;requestAnimationFrame(loop)}loop();c.onclick=()=>{vy=-8;vx=(Math.random()-0.5)*8}}
+  function loop(){
+    if(!alive) return;
+    ctx.fillStyle='#0a0a0a';ctx.fillRect(0,0,320,450);
+    // paleta
+    ctx.fillStyle='#ff4d6d';ctx.fillRect(paddleX,420,100,12);
+    // bola
+    ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y,9,0,Math.PI*2);ctx.fill();
+    x+=vx;y+=vy;vy+=0.15;
+    if(x<9||x>311)vx*=-1;
+    if(y<9)vy*=-1;
+    // colisión con paleta - PC y CELU
+    if(y>408&&y<425&&x>paddleX&&x<paddleX+100){vy=-6;vx=(x-(paddleX+50))/8;score+=5;if(navigator.vibrate)navigator.vibrate(15)}
+    if(y>450){alive=false;document.getElementById('scorePin').innerText='Game Over - Score: '+score;return}
+    ctx.fillStyle='#ffb3c1';ctx.fillRect(50,80,60,18);ctx.fillRect(190,120,60,18);
+    ctx.fillStyle='white';ctx.font='10px Poppins';ctx.fillText('BESO',60,92);ctx.fillText('TE AMO',195,132);
+    if(x>50&&x<110&&y>71&&y<98){vy*=-1;score+=10}
+    if(x>190&&x<250&&y>111&&y<138){vy*=-1;score+=20}
+    document.getElementById('scorePin').innerText='Score: '+score+' | PC: mouse o flechas ← → | Espacio: impulso';
+    pinballId=requestAnimationFrame(loop);
+  }
+  c.onmousemove=(e)=>{let r=c.getBoundingClientRect();paddleX=e.clientX-r.left-50};
+  c.addEventListener('touchmove',e=>{let r=c.getBoundingClientRect();paddleX=e.touches[0].clientX-r.left-50;e.preventDefault()},{passive:false});
+  window.addEventListener('keydown',e=>{if(e.key=='ArrowLeft')paddleX=Math.max(0,paddleX-18);if(e.key=='ArrowRight')paddleX=Math.min(220,paddleX+18);if(e.code=='Space'){vy=-7}});
+  loop();
+}
 
-// LINTERNA + RASCA
+// LINTERNA Y RASCA
 function initLinterna(){let c=document.getElementById('linCanvas');if(!c)return;let ctx=c.getContext('2d');function r(){c.width=c.parentElement.clientWidth;c.height=c.parentElement.clientHeight;ctx.fillStyle='black';ctx.fillRect(0,0,c.width,c.height)}r();let mx=-100,my=-100;function d(){ctx.globalCompositeOperation='source-over';ctx.fillStyle='black';ctx.fillRect(0,0,c.width,c.height);ctx.globalCompositeOperation='destination-out';let g=ctx.createRadialGradient(mx,my,0,mx,my,100);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(mx,my,100,0,Math.PI*2);ctx.fill()}c.addEventListener('mousemove',e=>{let rect=c.getBoundingClientRect();mx=e.clientX-rect.left;my=e.clientY-rect.top;d()});c.addEventListener('touchmove',e=>{let rect=c.getBoundingClientRect();mx=e.touches[0].clientX-rect.left;my=e.touches[0].clientY-rect.top;d();e.preventDefault()},{passive:false});d()}
-function initRasca(){let c=document.getElementById('rascaCanvas');if(!c)return;let ctx=c.getContext('2d');function r(){c.width=c.parentElement.clientWidth;c.height=c.parentElement.clientHeight;ctx.fillStyle='#c0c0c0';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#888';ctx.fillText('RASCÁ AQUÍ 👆',c.width/2-50,c.height/2)}r();let dr=false;function s(x,y){ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,20,0,Math.PI*2);ctx.fill()}c.addEventListener('mousedown',()=>dr=true);c.addEventListener('mouseup',()=>dr=false);c.addEventListener('mousemove',e=>{if(!dr)return;let rect=c.getBoundingClientRect();s(e.clientX-rect.left,e.clientY-rect.top)});c.addEventListener('touchstart',()=>dr=true);c.addEventListener('touchend',()=>dr=false);c.addEventListener('touchmove',e=>{let rect=c.getBoundingClientRect();s(e.touches[0].clientX-rect.left,e.touches[0].clientY-rect.top);e.preventDefault()},{passive:false})}
+function initRasca(){let c=document.getElementById('rascaCanvas');let ctx=c.getContext('2d');function r(){c.width=c.parentElement.clientWidth;c.height=c.parentElement.clientHeight;ctx.fillStyle='#c0c0c0';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#888';ctx.font='12px Poppins';ctx.fillText('RASCÁ AQUÍ 👆',c.width/2-50,c.height/2)}r();let dr=false;function s(x,y){ctx.globalCompositeOperation='destination-out';ctx.beginPath();ctx.arc(x,y,20,0,Math.PI*2);ctx.fill()}c.addEventListener('mousedown',()=>dr=true);c.addEventListener('mouseup',()=>dr=false);c.addEventListener('mousemove',e=>{if(!dr)return;let rect=c.getBoundingClientRect();s(e.clientX-rect.left,e.clientY-rect.top)});c.addEventListener('touchstart',()=>dr=true);c.addEventListener('touchend',()=>dr=false);c.addEventListener('touchmove',e=>{let rect=c.getBoundingClientRect();s(e.touches[0].clientX-rect.left,e.touches[0].clientY-rect.top);e.preventDefault()},{passive:false})}
 </script>
 </body>
 </html>
